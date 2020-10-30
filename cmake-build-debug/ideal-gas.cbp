@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ideal-gas"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\proj\;CMake Files\..\..\proj\cmake\;CMake Files\..\..\proj\cmake\modules\;CMake Files\..\..\lib\;CMake Files\..\..\lib\msw\;CMake Files\..\..\lib\msw\x86\;CMake Files\..\..\lib\msw\x86\Debug\;CMake Files\..\..\cmake-build-debug\;CMake Files\..\..\cmake-build-debug\lib\;CMake Files\..\..\cmake-build-debug\lib\msw\;CMake Files\..\..\cmake-build-debug\lib\msw\x86\;CMake Files\..\..\cmake-build-debug\lib\msw\x86\Debug\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ideal-gas-tests">
+				<Option output="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/Debug/ideal-gas-tests/ideal-gas-tests.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DFT2_BUILD_LIBRARY"/>
+					<Add option="-DFT_DEBUG_LEVEL_TRACE"/>
+					<Add option="-D_LIB"/>
+					<Add option="-DUNICODE"/>
+					<Add option="-D_UNICODE"/>
+					<Add option="-DNOMINMAX"/>
+					<Add option="-D_WIN32_WINNT=0x0601"/>
+					<Add option="-D_CRT_SECURE_NO_WARNINGS"/>
+					<Add option="-D_SCL_SECURE_NO_WARNINGS"/>
+					<Add directory="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/include"/>
+					<Add directory="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\8.1\include\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\8.1\include\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\8.1\include\\winrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 ideal-gas-tests"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ideal-gas-tests/fast">
+				<Option output="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/Debug/ideal-gas-tests/ideal-gas-tests.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="0"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add option="-DFT2_BUILD_LIBRARY"/>
+					<Add option="-DFT_DEBUG_LEVEL_TRACE"/>
+					<Add option="-D_LIB"/>
+					<Add option="-DUNICODE"/>
+					<Add option="-D_UNICODE"/>
+					<Add option="-DNOMINMAX"/>
+					<Add option="-D_WIN32_WINNT=0x0601"/>
+					<Add option="-D_CRT_SECURE_NO_WARNINGS"/>
+					<Add option="-D_SCL_SECURE_NO_WARNINGS"/>
+					<Add directory="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/include"/>
+					<Add directory="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\8.1\include\\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\8.1\include\\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\8.1\include\\winrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 ideal-gas-tests/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/src/particle.cpp">
+			<Option target="ideal-gas-tests"/>
+		</Unit>
+		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/tests/particle_tests.cpp">
+			<Option target="ideal-gas-tests"/>
+		</Unit>
+		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/tests/test_main.cpp">
+			<Option target="ideal-gas-tests"/>
+		</Unit>
+		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/../../proj/cmake/configure.cmake">
+			<Option virtualFolder="CMake Files\..\..\proj\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/../../proj/cmake/utilities.cmake">
+			<Option virtualFolder="CMake Files\..\..\proj\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/../../proj/cmake/modules/cinderMakeApp.cmake">
+			<Option virtualFolder="CMake Files\..\..\proj\cmake\modules\"/>
+		</Unit>
+		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/../../lib/msw/x86/Debug/cinderConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\lib\msw\x86\Debug\"/>
+		</Unit>
+		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/../../cmake-build-debug/lib/msw/x86/Debug/cinderTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\cmake-build-debug\lib\msw\x86\Debug\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
