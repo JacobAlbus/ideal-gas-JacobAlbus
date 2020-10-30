@@ -17,11 +17,9 @@ class Particle {
            double mass, size_t radius);
 
   /**
-   * Updates current particle's velocity based on
-   * attributes of particles it's colliding with
-   * @param particles current one is colliding with
+   * Updates particle's position based on velocity
    */
-  void UpdateParticle(std::vector<Particle>& particles_in_contact);
+  void UpdatePosition();
 
   /**
    * Updates particle's velocity based on attributes of other particle

@@ -18,6 +18,10 @@ void Particle::UpdateParticles(Particle& particle_in_contact) {
   particle_in_contact.velocity_ = updated_velocity2;
 }
 
+void Particle::UpdatePosition() {
+  position_ += velocity_;
+}
+
 glm::vec2 Particle::CalculateUpdatedVelocity(const Particle& particle1, const Particle& particle2) const {
   double mass_coefficient = 2 * (particle1.kMass_ / (particle1.kMass_ + particle2.kMass_));
   glm::vec2 velocity_diff = particle1.velocity_ - particle2.velocity_;
