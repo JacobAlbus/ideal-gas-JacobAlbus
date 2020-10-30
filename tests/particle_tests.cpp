@@ -27,3 +27,15 @@ TEST_CASE("Update Particle Properly Updates Velocity"){
   REQUIRE(particle2.GetVelocity()[1] == Approx(-1.75));
 }
 
+TEST_CASE("Update Position Works Correctly"){
+  glm::vec2 position(5.0, 6.0);
+  glm::vec2 velocity(0.5, -1.0);
+  size_t mass = 1;
+  size_t radius = 1;
+  Particle particle = Particle(velocity, position, mass, radius);
+
+  particle.UpdatePosition();
+  REQUIRE(particle.GetPosition()[0] == Approx(5.5));
+  REQUIRE(particle.GetPosition()[1] == Approx(5.0));
+}
+
