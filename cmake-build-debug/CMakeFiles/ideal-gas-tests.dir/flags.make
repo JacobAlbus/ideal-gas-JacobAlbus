@@ -6,5 +6,5 @@ CXX_FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MTd /Zi /Ob0 /Od /RTC1   /W3 /WX /
 
 CXX_DEFINES = -DFT2_BUILD_LIBRARY -DFT_DEBUG_LEVEL_TRACE -DNOMINMAX -DUNICODE -D_CRT_SECURE_NO_WARNINGS -D_LIB -D_SCL_SECURE_NO_WARNINGS -D_UNICODE -D_WIN32_WINNT=0x0601
 
-CXX_INCLUDES = -IC:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\include -IC:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\include 
+CXX_INCLUDES = -IC:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\include -IC:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\_deps\catch2-src\single_include -IC:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\include 
 

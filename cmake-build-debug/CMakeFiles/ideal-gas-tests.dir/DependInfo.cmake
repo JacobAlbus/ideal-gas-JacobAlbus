@@ -26,6 +26,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
+  "_deps/catch2-src/single_include"
   "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/include"
   )
 

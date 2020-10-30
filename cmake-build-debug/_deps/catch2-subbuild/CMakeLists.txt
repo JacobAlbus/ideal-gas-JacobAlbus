@@ -11,7 +11,7 @@ project(catch2-populate NONE)
 
 include(ExternalProject)
 ExternalProject_Add(catch2-populate
-                     "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/catchorg/Catch2.git"
+                     "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/catchorg/Catch2.git" "GIT_TAG" "v2.x"
                     SOURCE_DIR          "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/_deps/catch2-src"
                     BINARY_DIR          "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/_deps/catch2-build"
                     CONFIGURE_COMMAND   ""

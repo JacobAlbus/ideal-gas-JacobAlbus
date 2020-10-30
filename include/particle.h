@@ -1,7 +1,7 @@
 #ifndef IDEAL_GAS_JACOBALBUS_INCLUDE_PARTICLE_H_
 #define IDEAL_GAS_JACOBALBUS_INCLUDE_PARTICLE_H_
 #include <vector>
-#include "../../../include/cinder/gl/gl.h"
+#include "cinder/gl/gl.h"
 
 namespace ideal_gas {
 
@@ -13,24 +13,35 @@ class Particle {
    * @param initial position of particle
    * @param mass of particle
    */
-  Particle(glm::vec2 velocity, glm::vec2 position, size_t mass);
+  Particle(const glm::vec2& velocity, const glm::vec2& position,
+           double mass, size_t radius);
 
   /**
    * Updates current particle's velocity based on
    * attributes of particles it's colliding with
    * @param particles current one is colliding with
    */
-  void UpdateParticle(std::vector<Particle> particles_in_contact);
+  void UpdateParticle(std::vector<Particle>& particles_in_contact);
 
   /**
    * Updates particle's velocity based on attributes of other particle
    * @param particle current one is colliding with
    */
-  void UpdateParticle(Particle particle_in_contact);
+  void UpdateParticles(Particle& particle_in_contact);
+
+  const glm::vec2& GetVelocity();
+  const glm::vec2& GetPosition();
  private:
+  /**
+   * Calculates updated velocity for particle
+   * @return updated particle velocity
+   */
+  glm::vec2 CalculateUpdatedVelocity(const Particle& particle1, const Particle& particle2) const;
+
   glm::vec2 velocity_;
   glm::vec2 position_;
-  size_t kMass_;
+  double kMass_;
+  size_t kRadius_;
 };
 
 } //namespace ideal_gas

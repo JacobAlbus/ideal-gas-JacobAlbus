@@ -23,6 +23,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/JetBrains/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Compiler/MSVC-C.cmake"
   "C:/Program Files/JetBrains/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Compiler/MSVC-CXX.cmake"
   "C:/Program Files/JetBrains/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/FetchContent.cmake"
+  "C:/Program Files/JetBrains/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/FetchContent/CMakeLists.cmake.in"
   "C:/Program Files/JetBrains/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Platform/Windows-MSVC-C.cmake"
   "C:/Program Files/JetBrains/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Platform/Windows-MSVC-CXX.cmake"
   "C:/Program Files/JetBrains/CLion 2020.2.4/bin/cmake/win/share/cmake-3.17/Modules/Platform/Windows-MSVC.cmake"
@@ -49,6 +50,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
+  "_deps/catch2-subbuild/CMakeLists.txt"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

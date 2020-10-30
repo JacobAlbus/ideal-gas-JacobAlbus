@@ -11,7 +11,7 @@ if(error_code)
 endif()
 
 execute_process(
-  COMMAND "C:/Program Files/Git/cmd/git.exe" show-ref master
+  COMMAND "C:/Program Files/Git/cmd/git.exe" show-ref v2.x
   WORKING_DIRECTORY "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/_deps/catch2-src"
   OUTPUT_VARIABLE show_ref_output
   )
@@ -25,19 +25,19 @@ endif()
 
 # Tag is in the form <remote>/<tag> (i.e. origin/master) we must strip
 # the remote from the tag.
-if("${show_ref_output}" MATCHES "refs/remotes/master")
-  string(REGEX MATCH "^([^/]+)/(.+)$" _unused "master")
+if("${show_ref_output}" MATCHES "refs/remotes/v2.x")
+  string(REGEX MATCH "^([^/]+)/(.+)$" _unused "v2.x")
   set(git_remote "${CMAKE_MATCH_1}")
   set(git_tag "${CMAKE_MATCH_2}")
 else()
   set(git_remote "origin")
-  set(git_tag "master")
+  set(git_tag "v2.x")
 endif()
 
 # This will fail if the tag does not exist (it probably has not been fetched
 # yet).
 execute_process(
-  COMMAND "C:/Program Files/Git/cmd/git.exe" rev-list --max-count=1 master
+  COMMAND "C:/Program Files/Git/cmd/git.exe" rev-list --max-count=1 v2.x
   WORKING_DIRECTORY "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/_deps/catch2-src"
   RESULT_VARIABLE error_code
   OUTPUT_VARIABLE tag_sha
@@ -136,12 +136,12 @@ if(error_code OR is_remote_ref OR NOT ("${tag_sha}" STREQUAL "${head_sha}"))
     endif()
   else()
     execute_process(
-      COMMAND "C:/Program Files/Git/cmd/git.exe" checkout master
+      COMMAND "C:/Program Files/Git/cmd/git.exe" checkout v2.x
       WORKING_DIRECTORY "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/_deps/catch2-src"
       RESULT_VARIABLE error_code
       )
     if(error_code)
-      message(FATAL_ERROR "Failed to checkout tag: 'master'")
+      message(FATAL_ERROR "Failed to checkout tag: 'v2.x'")
     endif()
   endif()
 
