@@ -27,8 +27,17 @@ class Particle {
    */
   void UpdateParticles(Particle& particle_in_contact);
 
+  /**
+   * Calculates distance between current particle and a given particle
+   * @param particle which distance is calculated from
+   * @return distance between current and given particle
+   */
+  double CalculateDistance(const Particle& other_particle);
+
   const glm::vec2& GetVelocity();
+
   const glm::vec2& GetPosition();
+
  private:
   /**
    * Calculates updated velocity for particle

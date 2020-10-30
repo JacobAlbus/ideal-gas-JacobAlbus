@@ -154,6 +154,33 @@ src\particle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\particle.cpp.s
 .PHONY : src\particle.cpp.s
 
+src\particles.obj: src\particles.cpp.obj
+
+.PHONY : src\particles.obj
+
+# target to build an object file
+src\particles.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.obj
+.PHONY : src\particles.cpp.obj
+
+src\particles.i: src\particles.cpp.i
+
+.PHONY : src\particles.i
+
+# target to preprocess a source file
+src\particles.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.i
+.PHONY : src\particles.cpp.i
+
+src\particles.s: src\particles.cpp.s
+
+.PHONY : src\particles.s
+
+# target to generate assembly for a file
+src\particles.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.s
+.PHONY : src\particles.cpp.s
+
 tests\particle_tests.obj: tests\particle_tests.cpp.obj
 
 .PHONY : tests\particle_tests.obj
@@ -220,6 +247,9 @@ help:
 	@echo ... src/particle.obj
 	@echo ... src/particle.i
 	@echo ... src/particle.s
+	@echo ... src/particles.obj
+	@echo ... src/particles.i
+	@echo ... src/particles.s
 	@echo ... tests/particle_tests.obj
 	@echo ... tests/particle_tests.i
 	@echo ... tests/particle_tests.s

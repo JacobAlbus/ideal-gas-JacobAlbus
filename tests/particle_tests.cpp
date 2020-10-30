@@ -39,3 +39,21 @@ TEST_CASE("Update Position Works Correctly"){
   REQUIRE(particle.GetPosition()[1] == Approx(5.0));
 }
 
+TEST_CASE("Calculate Distance Returns Correct Distance"){
+  glm::vec2 position1(5.0, 6.0);
+  glm::vec2 velocity1(0.5, -1.0);
+  size_t mass1 = 1;
+  size_t radius1 = 1;
+  Particle particle1 = Particle(velocity1, position1, mass1, radius1);
+
+  glm::vec2 position2(6.0, 7.0);
+  glm::vec2 velocity2(1.0, -2.0);
+  size_t mass2 = 1;
+  size_t radius2 = 1;
+  Particle particle2 = Particle(velocity2, position2, mass2, radius2);
+
+  double distance = particle1.CalculateDistance(particle2);
+
+  REQUIRE(distance == Approx(1.414213562));
+}
+

@@ -18,6 +18,11 @@ void Particle::UpdateParticles(Particle& particle_in_contact) {
   particle_in_contact.velocity_ = updated_velocity2;
 }
 
+double Particle::CalculateDistance(const Particle &other_particle) {
+  glm::vec2 position_diff = position_ - other_particle.position_;
+  return sqrt(pow(position_diff[0], 2) + pow(position_diff[1], 2));
+}
+
 void Particle::UpdatePosition() {
   position_ += velocity_;
 }
