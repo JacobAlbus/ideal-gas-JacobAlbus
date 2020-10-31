@@ -1,3 +1,4 @@
 C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/CMakeFiles/ideal-gas-tests.dir
+C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/CMakeFiles/ideal-gas-visualizer.dir
 C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/CMakeFiles/rebuild_cache.dir

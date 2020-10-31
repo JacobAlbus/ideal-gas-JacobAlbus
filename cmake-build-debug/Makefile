@@ -127,6 +127,46 @@ ideal-gas-tests\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\build
 .PHONY : ideal-gas-tests\fast
 
+#=============================================================================
+# Target rules for targets named ideal-gas-visualizer
+
+# Build rule for target.
+ideal-gas-visualizer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) ideal-gas-visualizer
+.PHONY : ideal-gas-visualizer
+
+# fast build rule for target.
+ideal-gas-visualizer\fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\build
+.PHONY : ideal-gas-visualizer\fast
+
+ideal_gas_main.obj: ideal_gas_main.cpp.obj
+
+.PHONY : ideal_gas_main.obj
+
+# target to build an object file
+ideal_gas_main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\ideal_gas_main.cpp.obj
+.PHONY : ideal_gas_main.cpp.obj
+
+ideal_gas_main.i: ideal_gas_main.cpp.i
+
+.PHONY : ideal_gas_main.i
+
+# target to preprocess a source file
+ideal_gas_main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\ideal_gas_main.cpp.i
+.PHONY : ideal_gas_main.cpp.i
+
+ideal_gas_main.s: ideal_gas_main.cpp.s
+
+.PHONY : ideal_gas_main.s
+
+# target to generate assembly for a file
+ideal_gas_main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\ideal_gas_main.cpp.s
+.PHONY : ideal_gas_main.cpp.s
+
 src\engine\particle.obj: src\engine\particle.cpp.obj
 
 .PHONY : src\engine\particle.obj
@@ -180,6 +220,60 @@ src\engine\particles.s: src\engine\particles.cpp.s
 src\engine\particles.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.s
 .PHONY : src\engine\particles.cpp.s
+
+src\gui\naive_bayes_app.obj: src\gui\naive_bayes_app.cc.obj
+
+.PHONY : src\gui\naive_bayes_app.obj
+
+# target to build an object file
+src\gui\naive_bayes_app.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.obj
+.PHONY : src\gui\naive_bayes_app.cc.obj
+
+src\gui\naive_bayes_app.i: src\gui\naive_bayes_app.cc.i
+
+.PHONY : src\gui\naive_bayes_app.i
+
+# target to preprocess a source file
+src\gui\naive_bayes_app.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.i
+.PHONY : src\gui\naive_bayes_app.cc.i
+
+src\gui\naive_bayes_app.s: src\gui\naive_bayes_app.cc.s
+
+.PHONY : src\gui\naive_bayes_app.s
+
+# target to generate assembly for a file
+src\gui\naive_bayes_app.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.s
+.PHONY : src\gui\naive_bayes_app.cc.s
+
+src\gui\sketchpad.obj: src\gui\sketchpad.cc.obj
+
+.PHONY : src\gui\sketchpad.obj
+
+# target to build an object file
+src\gui\sketchpad.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\sketchpad.cc.obj
+.PHONY : src\gui\sketchpad.cc.obj
+
+src\gui\sketchpad.i: src\gui\sketchpad.cc.i
+
+.PHONY : src\gui\sketchpad.i
+
+# target to preprocess a source file
+src\gui\sketchpad.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\sketchpad.cc.i
+.PHONY : src\gui\sketchpad.cc.i
+
+src\gui\sketchpad.s: src\gui\sketchpad.cc.s
+
+.PHONY : src\gui\sketchpad.s
+
+# target to generate assembly for a file
+src\gui\sketchpad.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\sketchpad.cc.s
+.PHONY : src\gui\sketchpad.cc.s
 
 tests\particle_tests.obj: tests\particle_tests.cpp.obj
 
@@ -244,12 +338,22 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... ideal-gas-tests
+	@echo ... ideal-gas-visualizer
+	@echo ... ideal_gas_main.obj
+	@echo ... ideal_gas_main.i
+	@echo ... ideal_gas_main.s
 	@echo ... src/engine/particle.obj
 	@echo ... src/engine/particle.i
 	@echo ... src/engine/particle.s
 	@echo ... src/engine/particles.obj
 	@echo ... src/engine/particles.i
 	@echo ... src/engine/particles.s
+	@echo ... src/gui/naive_bayes_app.obj
+	@echo ... src/gui/naive_bayes_app.i
+	@echo ... src/gui/naive_bayes_app.s
+	@echo ... src/gui/sketchpad.obj
+	@echo ... src/gui/sketchpad.i
+	@echo ... src/gui/sketchpad.s
 	@echo ... tests/particle_tests.obj
 	@echo ... tests/particle_tests.i
 	@echo ... tests/particle_tests.s
