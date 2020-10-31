@@ -106,10 +106,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/src/particle.cpp">
+		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/src/engine/particle.cpp">
 			<Option target="ideal-gas-tests"/>
 		</Unit>
-		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/src/particles.cpp">
+		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/src/engine/particles.cpp">
 			<Option target="ideal-gas-tests"/>
 		</Unit>
 		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/tests/particle_tests.cpp">

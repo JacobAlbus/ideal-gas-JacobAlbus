@@ -1,8 +1,8 @@
 #include <iostream>
 #include <catch2/catch.hpp>
 
-#include "particle.h"
-#include "particles.h"
+#include "engine/particle.h"
+#include "engine/particles.h"
 using namespace ideal_gas;
 
 TEST_CASE("AS"){

@@ -80,42 +80,42 @@ CMakeFiles\ideal-gas-tests.dir\tests\test_main.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ideal-gas-tests.dir\tests\test_main.cpp.s /c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\tests\test_main.cpp
 <<
 
-CMakeFiles\ideal-gas-tests.dir\src\particle.cpp.obj: CMakeFiles\ideal-gas-tests.dir\flags.make
-CMakeFiles\ideal-gas-tests.dir\src\particle.cpp.obj: ..\src\particle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ideal-gas-tests.dir/src/particle.cpp.obj"
+CMakeFiles\ideal-gas-tests.dir\src\engine\particle.cpp.obj: CMakeFiles\ideal-gas-tests.dir\flags.make
+CMakeFiles\ideal-gas-tests.dir\src\engine\particle.cpp.obj: ..\src\engine\particle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ideal-gas-tests.dir/src/engine/particle.cpp.obj"
 	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ideal-gas-tests.dir\src\particle.cpp.obj /FdCMakeFiles\ideal-gas-tests.dir\ /FS -c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\particle.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ideal-gas-tests.dir\src\engine\particle.cpp.obj /FdCMakeFiles\ideal-gas-tests.dir\ /FS -c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\engine\particle.cpp
 <<
 
-CMakeFiles\ideal-gas-tests.dir\src\particle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ideal-gas-tests.dir/src/particle.cpp.i"
-	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe > CMakeFiles\ideal-gas-tests.dir\src\particle.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\particle.cpp
+CMakeFiles\ideal-gas-tests.dir\src\engine\particle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ideal-gas-tests.dir/src/engine/particle.cpp.i"
+	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe > CMakeFiles\ideal-gas-tests.dir\src\engine\particle.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\engine\particle.cpp
 <<
 
-CMakeFiles\ideal-gas-tests.dir\src\particle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ideal-gas-tests.dir/src/particle.cpp.s"
+CMakeFiles\ideal-gas-tests.dir\src\engine\particle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ideal-gas-tests.dir/src/engine/particle.cpp.s"
 	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ideal-gas-tests.dir\src\particle.cpp.s /c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\particle.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ideal-gas-tests.dir\src\engine\particle.cpp.s /c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\engine\particle.cpp
 <<
 
-CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.obj: CMakeFiles\ideal-gas-tests.dir\flags.make
-CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.obj: ..\src\particles.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ideal-gas-tests.dir/src/particles.cpp.obj"
+CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.obj: CMakeFiles\ideal-gas-tests.dir\flags.make
+CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.obj: ..\src\engine\particles.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ideal-gas-tests.dir/src/engine/particles.cpp.obj"
 	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ideal-gas-tests.dir\src\particles.cpp.obj /FdCMakeFiles\ideal-gas-tests.dir\ /FS -c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\particles.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.obj /FdCMakeFiles\ideal-gas-tests.dir\ /FS -c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\engine\particles.cpp
 <<
 
-CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ideal-gas-tests.dir/src/particles.cpp.i"
-	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe > CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\particles.cpp
+CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ideal-gas-tests.dir/src/engine/particles.cpp.i"
+	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe > CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\engine\particles.cpp
 <<
 
-CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ideal-gas-tests.dir/src/particles.cpp.s"
+CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ideal-gas-tests.dir/src/engine/particles.cpp.s"
 	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ideal-gas-tests.dir\src\particles.cpp.s /c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\particles.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.s /c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\engine\particles.cpp
 <<
 
 CMakeFiles\ideal-gas-tests.dir\tests\particle_tests.cpp.obj: CMakeFiles\ideal-gas-tests.dir\flags.make
@@ -140,16 +140,16 @@ CMakeFiles\ideal-gas-tests.dir\tests\particle_tests.cpp.s: cmake_force
 # Object files for target ideal-gas-tests
 ideal__gas__tests_OBJECTS = \
 "CMakeFiles\ideal-gas-tests.dir\tests\test_main.cpp.obj" \
-"CMakeFiles\ideal-gas-tests.dir\src\particle.cpp.obj" \
-"CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.obj" \
+"CMakeFiles\ideal-gas-tests.dir\src\engine\particle.cpp.obj" \
+"CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.obj" \
 "CMakeFiles\ideal-gas-tests.dir\tests\particle_tests.cpp.obj"
 
 # External object files for target ideal-gas-tests
 ideal__gas__tests_EXTERNAL_OBJECTS =
 
 Debug\ideal-gas-tests\ideal-gas-tests.exe: CMakeFiles\ideal-gas-tests.dir\tests\test_main.cpp.obj
-Debug\ideal-gas-tests\ideal-gas-tests.exe: CMakeFiles\ideal-gas-tests.dir\src\particle.cpp.obj
-Debug\ideal-gas-tests\ideal-gas-tests.exe: CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.obj
+Debug\ideal-gas-tests\ideal-gas-tests.exe: CMakeFiles\ideal-gas-tests.dir\src\engine\particle.cpp.obj
+Debug\ideal-gas-tests\ideal-gas-tests.exe: CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.obj
 Debug\ideal-gas-tests\ideal-gas-tests.exe: CMakeFiles\ideal-gas-tests.dir\tests\particle_tests.cpp.obj
 Debug\ideal-gas-tests\ideal-gas-tests.exe: CMakeFiles\ideal-gas-tests.dir\build.make
 Debug\ideal-gas-tests\ideal-gas-tests.exe: C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\lib\msw\x86\Debug\v140\cinder.lib

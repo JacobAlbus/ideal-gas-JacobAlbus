@@ -127,59 +127,59 @@ ideal-gas-tests\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\build
 .PHONY : ideal-gas-tests\fast
 
-src\particle.obj: src\particle.cpp.obj
+src\engine\particle.obj: src\engine\particle.cpp.obj
 
-.PHONY : src\particle.obj
-
-# target to build an object file
-src\particle.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\particle.cpp.obj
-.PHONY : src\particle.cpp.obj
-
-src\particle.i: src\particle.cpp.i
-
-.PHONY : src\particle.i
-
-# target to preprocess a source file
-src\particle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\particle.cpp.i
-.PHONY : src\particle.cpp.i
-
-src\particle.s: src\particle.cpp.s
-
-.PHONY : src\particle.s
-
-# target to generate assembly for a file
-src\particle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\particle.cpp.s
-.PHONY : src\particle.cpp.s
-
-src\particles.obj: src\particles.cpp.obj
-
-.PHONY : src\particles.obj
+.PHONY : src\engine\particle.obj
 
 # target to build an object file
-src\particles.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.obj
-.PHONY : src\particles.cpp.obj
+src\engine\particle.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\particle.cpp.obj
+.PHONY : src\engine\particle.cpp.obj
 
-src\particles.i: src\particles.cpp.i
+src\engine\particle.i: src\engine\particle.cpp.i
 
-.PHONY : src\particles.i
+.PHONY : src\engine\particle.i
 
 # target to preprocess a source file
-src\particles.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.i
-.PHONY : src\particles.cpp.i
+src\engine\particle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\particle.cpp.i
+.PHONY : src\engine\particle.cpp.i
 
-src\particles.s: src\particles.cpp.s
+src\engine\particle.s: src\engine\particle.cpp.s
 
-.PHONY : src\particles.s
+.PHONY : src\engine\particle.s
 
 # target to generate assembly for a file
-src\particles.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\particles.cpp.s
-.PHONY : src\particles.cpp.s
+src\engine\particle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\particle.cpp.s
+.PHONY : src\engine\particle.cpp.s
+
+src\engine\particles.obj: src\engine\particles.cpp.obj
+
+.PHONY : src\engine\particles.obj
+
+# target to build an object file
+src\engine\particles.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.obj
+.PHONY : src\engine\particles.cpp.obj
+
+src\engine\particles.i: src\engine\particles.cpp.i
+
+.PHONY : src\engine\particles.i
+
+# target to preprocess a source file
+src\engine\particles.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.i
+.PHONY : src\engine\particles.cpp.i
+
+src\engine\particles.s: src\engine\particles.cpp.s
+
+.PHONY : src\engine\particles.s
+
+# target to generate assembly for a file
+src\engine\particles.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.s
+.PHONY : src\engine\particles.cpp.s
 
 tests\particle_tests.obj: tests\particle_tests.cpp.obj
 
@@ -244,12 +244,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... ideal-gas-tests
-	@echo ... src/particle.obj
-	@echo ... src/particle.i
-	@echo ... src/particle.s
-	@echo ... src/particles.obj
-	@echo ... src/particles.i
-	@echo ... src/particles.s
+	@echo ... src/engine/particle.obj
+	@echo ... src/engine/particle.i
+	@echo ... src/engine/particle.s
+	@echo ... src/engine/particles.obj
+	@echo ... src/engine/particles.i
+	@echo ... src/engine/particles.s
 	@echo ... tests/particle_tests.obj
 	@echo ... tests/particle_tests.i
 	@echo ... tests/particle_tests.s
