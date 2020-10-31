@@ -8,7 +8,7 @@ namespace ideal_gas {
 
 class Particles{
  public:
-  Particles();
+  Particles(size_t num_particles);
  private:
   /**
    * Finds all particles given one is currently colliding with

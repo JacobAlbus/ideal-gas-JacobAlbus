@@ -5,6 +5,11 @@
 
 namespace ideal_gas {
 
+enum ParticleType {
+  kRed,
+  kBlue,
+};
+
 class Particle {
  public:
   /**
@@ -13,8 +18,7 @@ class Particle {
    * @param initial position of particle
    * @param mass of particle
    */
-  Particle(const glm::vec2& velocity, const glm::vec2& position,
-           double mass, size_t radius);
+  Particle(const glm::vec2& velocity, const glm::vec2& position, ParticleType type);
 
   /**
    * Updates particle's position based on velocity

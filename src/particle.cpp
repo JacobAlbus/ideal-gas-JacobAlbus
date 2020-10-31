@@ -1,13 +1,20 @@
 #include "../include/particle.h"
-#include <math.h>
+
 namespace ideal_gas {
 
-Particle::Particle(const glm::vec2& velocity, const glm::vec2& position,
-                   double mass, size_t radius) {
+Particle::Particle(const glm::vec2& velocity, const glm::vec2& position, ParticleType type) {
   velocity_ = velocity;
   position_ = position;
-  kMass_ = mass;
-  kRadius_ = radius;
+
+  //TODO is this magical
+  switch(type) {
+    case ParticleType::kRed:
+      kMass_ = 1;
+      kRadius_ = 1;
+    case ParticleType::kBlue:
+      kMass_ = 4;
+      kRadius_ = 2;
+  }
 }
 
 void Particle::UpdateParticles(Particle& particle_in_contact) {
@@ -27,6 +34,7 @@ void Particle::UpdatePosition() {
   position_ += velocity_;
 }
 
+//TODO make not ugly
 glm::vec2 Particle::CalculateUpdatedVelocity(const Particle& particle1, const Particle& particle2) const {
   double mass_coefficient = 2 * (particle1.kMass_ / (particle1.kMass_ + particle2.kMass_));
   glm::vec2 velocity_diff = particle1.velocity_ - particle2.velocity_;
