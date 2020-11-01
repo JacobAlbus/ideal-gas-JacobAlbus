@@ -43,7 +43,7 @@ list(APPEND TEST_FILES tests/particle_tests.cpp)
 ci_make_app(
         APP_NAME        ideal-gas-visualizer
         CINDER_PATH     ${CINDER_PATH}
-        SOURCES         ideal_gas_main.cpp ${GUI_SOURCE_FILES}
+        SOURCES         ideal_gas_main.cpp ${GUI_SOURCE_FILES} ${ENGINE_SOURCE_FILES}
         INCLUDES        include
 )
 

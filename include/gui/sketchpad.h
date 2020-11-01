@@ -1,7 +1,8 @@
 #pragma once
 #include "cinder/gl/gl.h"
+#include "engine/particle.h"
 
-namespace naivebayes {
+namespace ideal_gas {
 
 namespace visualizer {
 
@@ -41,14 +42,14 @@ class Sketchpad {
    * @param brush_screen_coords the screen coordinates at which the brush is
    *           located
    */
-  void HandleBrush(const glm::vec2& brush_screen_coords);
+  void HandleBrush(const glm::vec2& brush_screen_coords, std::string& message);
 
   /**
    * Set all of the sketchpad pixels to an unshaded state.
    */
   void Clear();
 
-  const std::vector<std::vector<int>>& GetImagePixels() const;
+  const std::vector<Particle>& GetImagePixels() const;
  private:
   glm::vec2 top_left_corner_;
 
@@ -59,10 +60,9 @@ class Sketchpad {
 
   double brush_radius_;
 
-  /** 2d vector of pixels representing the image to be classified*/
-  std::vector<std::vector<int>> image_pixels_;
+  std::vector<Particle> particles_;
 };
 
 }  // namespace visualizer
 
-}  // namespace naivebayes
+}  // namespace ideal_gas

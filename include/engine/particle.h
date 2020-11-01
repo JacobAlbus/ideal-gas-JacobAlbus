@@ -38,10 +38,11 @@ class Particle {
    */
   double CalculateDistance(const Particle& other_particle);
 
-  const glm::vec2& GetVelocity();
+  const glm::vec2& GetVelocity() const;
 
-  const glm::vec2& GetPosition();
+  const glm::vec2& GetPosition() const;
 
+  size_t GetRadius() const;
  private:
   /**
    * Calculates updated velocity for particle

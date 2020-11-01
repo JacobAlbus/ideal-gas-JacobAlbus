@@ -1,8 +1,10 @@
 #include "gui/naive_bayes_app.h"
 
-using naivebayes::visualizer::NaiveBayesApp;
+using ideal_gas::visualizer::NaiveBayesApp;
 
 void prepareSettings(NaiveBayesApp::Settings* settings) {
+  //TODO change for testing
+  srand((unsigned int)time(NULL));
   settings->setResizable(false);
 }
 

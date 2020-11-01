@@ -3,8 +3,9 @@
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 #include "sketchpad.h"
+#include "engine/particle.h"
 
-namespace naivebayes {
+namespace ideal_gas {
 
 namespace visualizer {
 
@@ -26,10 +27,12 @@ class NaiveBayesApp : public ci::app::App {
   const size_t kImageDimension = 28;
 
  private:
+  std::string message_ = "rando particle";
+  std::vector<ideal_gas::Particle> particles_;
   Sketchpad sketchpad_;
   int current_prediction_ = -1;
 };
 
 }  // namespace visualizer
 
-}  // namespace naivebayes
+}  // namespace ideal_gas

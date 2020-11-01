@@ -53,12 +53,16 @@ glm::vec2 Particle::CalculateUpdatedVelocity(const Particle& particle1, const Pa
   return particle1.velocity_ - (position_diff * static_cast<float>(temp));
 }
 
-const glm::vec2& Particle::GetPosition() {
+const glm::vec2& Particle::GetPosition() const {
   return position_;
 }
 
-const glm::vec2& Particle::GetVelocity() {
+const glm::vec2& Particle::GetVelocity() const {
   return velocity_;
+}
+
+size_t Particle::GetRadius() const {
+  return kRadius_;
 }
 
 } //namespace ideal_gas
