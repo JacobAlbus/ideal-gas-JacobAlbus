@@ -10,15 +10,15 @@ Particle::Particle(const glm::vec2& velocity, const glm::vec2& position, Particl
   switch(type) {
     case ParticleType::kRed:
       kMass_ = 1;
-      kRadius_ = 1;
+      kRadius_ = 3;
       break;
     case ParticleType::kBlue:
       kMass_ = 4;
-      kRadius_ = 2;
+      kRadius_ = 6;
       break;
     default:
       kMass_ = 1;
-      kRadius_ = 1;
+      kRadius_ = 3;
   }
 }
 

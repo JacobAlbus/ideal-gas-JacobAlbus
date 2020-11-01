@@ -41,7 +41,7 @@ void Sketchpad::Clear() {
   particles_.clear();
 }
 
-const std::vector<Particle>& Sketchpad::GetImagePixels() const {
+std::vector<Particle>& Sketchpad::GetParticles() {
   return particles_;
 }
 

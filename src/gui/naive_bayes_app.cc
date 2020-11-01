@@ -10,6 +10,13 @@ NaiveBayesApp::NaiveBayesApp()
   ci::app::setWindowSize((int) kWindowSize, (int) kWindowSize);
 }
 
+void NaiveBayesApp::update() {
+  std::vector<Particle>& particles = sketchpad_.GetParticles();
+  for(auto& particle : particles) {
+    particle.UpdatePosition();
+  }
+}
+
 void NaiveBayesApp::draw() {
   ci::Color8u background_color(255, 255 , 255);
   ci::gl::clear(background_color);

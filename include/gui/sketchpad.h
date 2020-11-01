@@ -49,7 +49,7 @@ class Sketchpad {
    */
   void Clear();
 
-  const std::vector<Particle>& GetImagePixels() const;
+  std::vector<Particle>& GetParticles();
  private:
   glm::vec2 top_left_corner_;
 
