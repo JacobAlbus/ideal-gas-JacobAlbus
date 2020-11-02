@@ -22,12 +22,18 @@ Particle::Particle(const glm::vec2& velocity, const glm::vec2& position, Particl
   }
 }
 
-void Particle::UpdateParticles(Particle& particle_in_contact) {
-  glm::vec2 updated_velocity1 = CalculateUpdatedVelocity(*this, particle_in_contact);
-  glm::vec2 updated_velocity2 = CalculateUpdatedVelocity(particle_in_contact, *this);
+void Particle::UpdateVelocity(Particle& particle_in_contact) {
+  if(this->GetPosition() != particle_in_contact.GetPosition()) {
+    double touching_radius = this->GetRadius() + particle_in_contact.GetRadius();
 
-  velocity_ = updated_velocity1;
-  particle_in_contact.velocity_ = updated_velocity2;
+    if(this->CalculateDistance(particle_in_contact) < touching_radius){
+      glm::vec2 updated_velocity1 = CalculateUpdatedVelocity(*this, particle_in_contact);
+      glm::vec2 updated_velocity2 = CalculateUpdatedVelocity(particle_in_contact, *this);
+
+      velocity_ = updated_velocity1;
+      particle_in_contact.velocity_ = updated_velocity2;
+    }
+  }
 }
 
 double Particle::CalculateDistance(const Particle &other_particle) {
@@ -35,7 +41,16 @@ double Particle::CalculateDistance(const Particle &other_particle) {
   return sqrt(pow(position_diff[0], 2) + pow(position_diff[1], 2));
 }
 
-void Particle::UpdatePosition() {
+void Particle::UpdatePosition(ci::Rectf gas_box) {
+  // checks to see if particle is touching walls
+  // and changes velocity in opposite direction
+  if(position_[0] <= (gas_box.getX1() + kRadius_) || position_[0] >= (gas_box.getX2() - kRadius_)) {
+    velocity_[0] *= -1;
+  }
+  if(position_[1] <= (gas_box.getY1() + kRadius_) || position_[1] >= (gas_box.getY2() - kRadius_)) {
+    velocity_[1] *= -1;
+  }
+
   position_ += velocity_;
 }
 

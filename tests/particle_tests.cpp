@@ -18,7 +18,7 @@ TEST_CASE("Update Particle Properly Updates Velocity"){
   glm::vec2 velocity2(1.0, -2.0);
   Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
 
-  particle1.UpdateParticles(particle2);
+  particle1.UpdateVelocity(particle2);
 
   REQUIRE(particle1.GetVelocity()[0] == Approx(0.25));
   REQUIRE(particle1.GetVelocity()[1] == Approx(-1.25));
@@ -32,7 +32,7 @@ TEST_CASE("Update Position Works Correctly"){
   glm::vec2 velocity(0.5, -1.0);
   Particle particle = Particle(velocity, position, ParticleType::kRed);
 
-  particle.UpdatePosition();
+  particle.UpdatePosition(100);
   REQUIRE(particle.GetPosition()[0] == Approx(5.5));
   REQUIRE(particle.GetPosition()[1] == Approx(5.0));
 }

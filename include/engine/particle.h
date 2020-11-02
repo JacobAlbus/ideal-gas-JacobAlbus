@@ -22,14 +22,15 @@ class Particle {
 
   /**
    * Updates particle's position based on velocity
+   * @param position for edge of  window, used to make sure particle is within window
    */
-  void UpdatePosition();
+  void UpdatePosition(ci::Rectf gas_box);
 
   /**
    * Updates particle's velocity based on attributes of other particle
    * @param particle current one is colliding with
    */
-  void UpdateParticles(Particle& particle_in_contact);
+  void UpdateVelocity(Particle& particle_in_contact);
 
   /**
    * Calculates distance between current particle and a given particle

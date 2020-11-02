@@ -26,8 +26,7 @@ class Sketchpad {
    * @param brush_radius        the maximum distance (measured in sketchpad
    *                            pixels) from the brush that will be shaded
    */
-  Sketchpad(const glm::vec2& top_left_corner, size_t num_pixels_per_side,
-            double sketchpad_size, double brush_radius = 1.15);
+  Sketchpad(const glm::vec2& top_left_corner);
 
   /**
    * Displays the current state of the sketchpad in the Cinder application.
@@ -42,7 +41,7 @@ class Sketchpad {
    * @param brush_screen_coords the screen coordinates at which the brush is
    *           located
    */
-  void HandleBrush(const glm::vec2& brush_screen_coords, std::string& message);
+  void HandleBrush(const glm::vec2& brush_screen_coords, ci::Rectf gas_box, std::string& message);
 
   /**
    * Set all of the sketchpad pixels to an unshaded state.

@@ -6,12 +6,8 @@ namespace visualizer {
 
 using glm::vec2;
 
-Sketchpad::Sketchpad(const vec2& top_left_corner, size_t num_pixels_per_side,
-                     double sketchpad_size, double brush_radius)
-    : top_left_corner_(top_left_corner),
-      num_pixels_per_side_(num_pixels_per_side),
-      pixel_side_length_(sketchpad_size / num_pixels_per_side),
-      brush_radius_(brush_radius) {}
+Sketchpad::Sketchpad(const vec2& top_left_corner)
+    : top_left_corner_(top_left_corner) {}
 
 void Sketchpad::Draw() const {
   for(const Particle& particle : particles_) {
@@ -21,20 +17,25 @@ void Sketchpad::Draw() const {
   }
 }
 
-void Sketchpad::HandleBrush(const vec2& brush_screen_coords, std::string& message) {
+void Sketchpad::HandleBrush(const vec2& brush_screen_coords, ci::Rectf gas_box, std::string& message) {
   double x_coord = brush_screen_coords.x;
   double y_coord = brush_screen_coords.y;
-  glm::vec2 position(x_coord, y_coord);
-
-  double x_velocity = (double)rand()/RAND_MAX*2.0-1.0;
-  double y_velocity = (double)rand()/RAND_MAX*2.0-1.0;
-  glm::vec2 velocity(x_velocity, y_velocity);
 
   message = "position: (" + std::to_string(x_coord) + ", " + std::to_string(y_coord) + ")  " +
-      "velocity: (" + std::to_string(x_velocity) + ", " + std::to_string(y_velocity) + ") " + std::to_string(particles_.size());
+            std::to_string(particles_.size());
+  if(x_coord >= (gas_box.getX1() + 5) && x_coord <= (gas_box.getX2() - 5)) {
+    if(y_coord >= (gas_box.getY1() + 5) && y_coord <= (gas_box.getY2() - 5)) {
+      glm::vec2 position(x_coord, y_coord);
 
-  Particle new_particle = Particle(velocity, position, ParticleType::kRed);
-  particles_.push_back(new_particle);
+      double x_velocity = (double)rand()/RAND_MAX*2.0-1.0;
+      double y_velocity = (double)rand()/RAND_MAX*2.0-1.0;
+      glm::vec2 velocity(x_velocity, y_velocity);
+
+
+      Particle new_particle = Particle(velocity, position, ParticleType::kRed);
+      particles_.push_back(new_particle);
+    }
+  }
 }
 
 void Sketchpad::Clear() {

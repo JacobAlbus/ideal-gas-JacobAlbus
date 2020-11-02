@@ -24,14 +24,12 @@ class NaiveBayesApp : public ci::app::App {
   void keyDown(ci::app::KeyEvent event) override;
 
   const double kWindowSize = 875;
-  const double kMargin = 40;
-  const size_t kImageDimension = 28;
+  const double kMargin = 20;
 
  private:
-  std::string message_ = "rando particle";
-  std::vector<ideal_gas::Particle> particles_;
+  ci::Rectf gas_box;
+  std::string message_ = "";
   Sketchpad sketchpad_;
-  int current_prediction_ = -1;
 };
 
 }  // namespace visualizer
