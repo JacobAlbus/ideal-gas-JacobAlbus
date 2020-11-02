@@ -32,9 +32,11 @@ TEST_CASE("Update Position Works Correctly"){
   glm::vec2 velocity(0.5, -1.0);
   Particle particle = Particle(velocity, position, ParticleType::kRed);
 
-  particle.UpdatePosition(100);
-  REQUIRE(particle.GetPosition()[0] == Approx(5.5));
-  REQUIRE(particle.GetPosition()[1] == Approx(5.0));
+  ci::Rectf gas_box(200.0f, 300.0f, 200.0f, 300.0f);
+
+  particle.UpdatePosition(gas_box);
+  REQUIRE(particle.GetPosition()[0] == Approx(4.5));
+  REQUIRE(particle.GetPosition()[1] == Approx(7.0));
 }
 
 TEST_CASE("Calculate Distance Returns Correct Distance"){

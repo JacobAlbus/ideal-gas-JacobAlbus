@@ -33,7 +33,8 @@ void NaiveBayesApp::draw() {
   ci::gl::drawStringCentered(
       message_,
       glm::vec2(kWindowSize / 2, kMargin / 2), ci::Color("black"));
-
+  
+  ci::gl::color(0, 0, 0);
   ci::gl::drawStrokedRect(gas_box);
 }
 

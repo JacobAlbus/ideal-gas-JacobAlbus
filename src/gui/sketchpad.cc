@@ -11,7 +11,7 @@ Sketchpad::Sketchpad(const vec2& top_left_corner)
 
 void Sketchpad::Draw() const {
   for(const Particle& particle : particles_) {
-    ci::gl::color(0, 0 , 0);
+    ci::gl::color(particle.GetColor());
     const auto kRadius = static_cast<float>(particle.GetRadius());
     ci::gl::drawSolidCircle(particle.GetPosition(), kRadius);
   }

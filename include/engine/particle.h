@@ -44,6 +44,8 @@ class Particle {
   const glm::vec2& GetPosition() const;
 
   size_t GetRadius() const;
+
+  const ci::Color& GetColor() const;
  private:
   /**
    * Calculates updated velocity for particle
@@ -53,8 +55,10 @@ class Particle {
 
   glm::vec2 velocity_;
   glm::vec2 position_;
+  //TODO make const
   double kMass_;
   size_t kRadius_;
+  ci::Color kParticleColor_;
 };
 
 } //namespace ideal_gas

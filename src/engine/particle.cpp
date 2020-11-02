@@ -11,14 +11,17 @@ Particle::Particle(const glm::vec2& velocity, const glm::vec2& position, Particl
     case ParticleType::kRed:
       kMass_ = 1;
       kRadius_ = 3;
+      kParticleColor_ = ci::Color(1, 0, 0);
       break;
     case ParticleType::kBlue:
       kMass_ = 4;
       kRadius_ = 6;
+      kParticleColor_ = ci::Color(0, 0, 1);
       break;
     default:
       kMass_ = 1;
       kRadius_ = 3;
+      kParticleColor_ = ci::Color(1, 0, 0);
   }
 }
 
@@ -26,7 +29,7 @@ void Particle::UpdateVelocity(Particle& particle_in_contact) {
   if(this->GetPosition() != particle_in_contact.GetPosition()) {
     double touching_radius = this->GetRadius() + particle_in_contact.GetRadius();
 
-    if(this->CalculateDistance(particle_in_contact) < touching_radius){
+    if(this->CalculateDistance(particle_in_contact) <= touching_radius){
       glm::vec2 updated_velocity1 = CalculateUpdatedVelocity(*this, particle_in_contact);
       glm::vec2 updated_velocity2 = CalculateUpdatedVelocity(particle_in_contact, *this);
 
@@ -78,6 +81,10 @@ const glm::vec2& Particle::GetVelocity() const {
 
 size_t Particle::GetRadius() const {
   return kRadius_;
+}
+
+const ci::Color & Particle::GetColor() const {
+  return kParticleColor_;
 }
 
 } //namespace ideal_gas
