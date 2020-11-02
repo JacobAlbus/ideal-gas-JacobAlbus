@@ -10,13 +10,13 @@ namespace ideal_gas {
 namespace visualizer {
 
 /**
- * Allows a user to draw a digit on a sketchpad and uses Naive Bayes to
- * classify it.
+ * Allows a user to visualize particle collisions in an ideal system
  */
 class NaiveBayesApp : public ci::app::App {
  public:
   NaiveBayesApp();
 
+  //TODO documentations?
   void draw() override;
   void update() override;
   void mouseDown(ci::app::MouseEvent event) override;
@@ -28,8 +28,8 @@ class NaiveBayesApp : public ci::app::App {
 
  private:
   ParticleType particle_type_;
-  ci::Rectf gas_box;
-  std::string message_ = "";
+  ci::Rectf gas_window_;
+  std::string message_;
   Sketchpad sketchpad_;
 };
 

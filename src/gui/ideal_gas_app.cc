@@ -4,21 +4,19 @@ namespace ideal_gas {
 
 namespace visualizer {
 
-NaiveBayesApp::NaiveBayesApp()
-    : sketchpad_(glm::vec2(kMargin, kMargin)) {
+NaiveBayesApp::NaiveBayesApp() : sketchpad_(),
+                                 particle_type_(ParticleType::kRed) {
   ci::app::setWindowSize((int) kWindowSize, (int) kWindowSize);
-  gas_box = ci::Rectf(getWindowWidth()/4-200.0f,
-                      getWindowHeight()/2-300.0f,
-                      getWindowWidth()/4+200.0f,
-                      getWindowHeight()/2+300.0f);
-  particle_type_ = ParticleType::kRed;
+  //TODO how make const?
+  gas_window_ = ci::Rectf(getWindowWidth()/4-200.0f, getWindowHeight()/2-300.0f,
+                          getWindowWidth()/4+200.0f, getWindowHeight()/2+300.0f);
 }
 
 void NaiveBayesApp::update() {
   std::vector<Particle>& particles = sketchpad_.GetParticles();
   //TODO get better names
   for(auto& particle1 : particles) {
-    particle1.UpdatePosition(gas_box);
+    particle1.UpdatePosition(gas_window_);
     for(auto& particle2 : particles) {
       particle1.UpdateVelocity(particle2);
     }
@@ -36,21 +34,29 @@ void NaiveBayesApp::draw() {
       glm::vec2(kWindowSize / 2, kMargin / 2), ci::Color("white"));
 
   ci::gl::color(255, 255, 255);
-  ci::gl::drawStrokedRect(gas_box);
+  ci::gl::drawStrokedRect(gas_window_);
 }
 
 void NaiveBayesApp::mouseDown(ci::app::MouseEvent event) {
-  sketchpad_.HandleBrush(event.getPos(), gas_box, message_, particle_type_);
+  size_t particle_count = sketchpad_.GetParticles().size();
+  message_ = "Particle Count: " + std::to_string(particle_count);
+
+  sketchpad_.HandleParticleBrush(event.getPos(), gas_window_, particle_type_);
 }
 
 void NaiveBayesApp::mouseDrag(ci::app::MouseEvent event) {
-  sketchpad_.HandleBrush(event.getPos(), gas_box, message_, particle_type_);
+  size_t particle_count = sketchpad_.GetParticles().size();
+  message_ = "Particle Count: " + std::to_string(particle_count);
+
+  sketchpad_.HandleParticleBrush(event.getPos(), gas_window_, particle_type_);
 }
 
 void NaiveBayesApp::keyDown(ci::app::KeyEvent event) {
   switch (event.getCode()) {
     case ci::app::KeyEvent::KEY_DELETE: {
       sketchpad_.Clear();
+      size_t particle_count = sketchpad_.GetParticles().size();
+      message_ = "Particle Count: " + std::to_string(particle_count);
       break;
     }
     case ci::app::KeyEvent::KEY_ESCAPE: {
