@@ -197,36 +197,6 @@ src\engine\particle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\engine\particle.cpp.s
 .PHONY : src\engine\particle.cpp.s
 
-src\engine\particles.obj: src\engine\particles.cpp.obj
-
-.PHONY : src\engine\particles.obj
-
-# target to build an object file
-src\engine\particles.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.obj
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\engine\particles.cpp.obj
-.PHONY : src\engine\particles.cpp.obj
-
-src\engine\particles.i: src\engine\particles.cpp.i
-
-.PHONY : src\engine\particles.i
-
-# target to preprocess a source file
-src\engine\particles.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\engine\particles.cpp.i
-.PHONY : src\engine\particles.cpp.i
-
-src\engine\particles.s: src\engine\particles.cpp.s
-
-.PHONY : src\engine\particles.s
-
-# target to generate assembly for a file
-src\engine\particles.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\particles.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\engine\particles.cpp.s
-.PHONY : src\engine\particles.cpp.s
-
 src\gui\ideal_gas_app.obj: src\gui\ideal_gas_app.cc.obj
 
 .PHONY : src\gui\ideal_gas_app.obj
@@ -351,9 +321,6 @@ help:
 	@echo ... src/engine/particle.obj
 	@echo ... src/engine/particle.i
 	@echo ... src/engine/particle.s
-	@echo ... src/engine/particles.obj
-	@echo ... src/engine/particles.i
-	@echo ... src/engine/particles.s
 	@echo ... src/gui/ideal_gas_app.obj
 	@echo ... src/gui/ideal_gas_app.i
 	@echo ... src/gui/ideal_gas_app.s

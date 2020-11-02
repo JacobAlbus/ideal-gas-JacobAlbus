@@ -179,10 +179,6 @@
 			<Option target="ideal-gas-tests"/>
 			<Option target="ideal-gas-visualizer"/>
 		</Unit>
-		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/src/engine/particles.cpp">
-			<Option target="ideal-gas-tests"/>
-			<Option target="ideal-gas-visualizer"/>
-		</Unit>
 		<Unit filename="C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/src/gui/ideal_gas_app.cc">
 			<Option target="ideal-gas-visualizer"/>
 		</Unit>
