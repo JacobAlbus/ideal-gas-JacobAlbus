@@ -11,6 +11,7 @@ NaiveBayesApp::NaiveBayesApp()
                       getWindowHeight()/2-300.0f,
                       getWindowWidth()/4+200.0f,
                       getWindowHeight()/2+300.0f);
+  particle_type_ = ParticleType::kRed;
 }
 
 void NaiveBayesApp::update() {
@@ -39,11 +40,11 @@ void NaiveBayesApp::draw() {
 }
 
 void NaiveBayesApp::mouseDown(ci::app::MouseEvent event) {
-  sketchpad_.HandleBrush(event.getPos(), gas_box, message_);
+  sketchpad_.HandleBrush(event.getPos(), gas_box, message_, particle_type_);
 }
 
 void NaiveBayesApp::mouseDrag(ci::app::MouseEvent event) {
-  sketchpad_.HandleBrush(event.getPos(), gas_box, message_);
+  sketchpad_.HandleBrush(event.getPos(), gas_box, message_, particle_type_);
 }
 
 void NaiveBayesApp::keyDown(ci::app::KeyEvent event) {
@@ -54,6 +55,14 @@ void NaiveBayesApp::keyDown(ci::app::KeyEvent event) {
     }
     case ci::app::KeyEvent::KEY_ESCAPE: {
       exit(0);
+      break;
+    }
+    case ci::app::KeyEvent::KEY_SPACE: {
+      if(particle_type_ == ParticleType::kBlue){
+        particle_type_ = ParticleType::kRed;
+      } else {
+        particle_type_ = ParticleType::kBlue;
+      }
     }
   }
 }

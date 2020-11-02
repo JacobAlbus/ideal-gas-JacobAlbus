@@ -27,6 +27,7 @@ class NaiveBayesApp : public ci::app::App {
   const double kMargin = 20;
 
  private:
+  ParticleType particle_type_;
   ci::Rectf gas_box;
   std::string message_ = "";
   Sketchpad sketchpad_;

@@ -41,7 +41,10 @@ class Sketchpad {
    * @param brush_screen_coords the screen coordinates at which the brush is
    *           located
    */
-  void HandleBrush(const glm::vec2& brush_screen_coords, ci::Rectf gas_box, std::string& message);
+  void HandleBrush(const glm::vec2& brush_screen_coords,
+                   ci::Rectf gas_box,
+                   std::string& message,
+                   ParticleType particle_type);
 
   /**
    * Set all of the sketchpad pixels to an unshaded state.

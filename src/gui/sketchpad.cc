@@ -17,12 +17,12 @@ void Sketchpad::Draw() const {
   }
 }
 
-void Sketchpad::HandleBrush(const vec2& brush_screen_coords, ci::Rectf gas_box, std::string& message) {
+void Sketchpad::HandleBrush(const vec2& brush_screen_coords, ci::Rectf gas_box,
+                            std::string& message, ParticleType particle_type) {
   double x_coord = brush_screen_coords.x;
   double y_coord = brush_screen_coords.y;
 
-  message = "position: (" + std::to_string(x_coord) + ", " + std::to_string(y_coord) + ")  " +
-            std::to_string(particles_.size());
+  message = std::to_string(particles_.size());
   if(x_coord >= (gas_box.getX1() + 5) && x_coord <= (gas_box.getX2() - 5)) {
     if(y_coord >= (gas_box.getY1() + 5) && y_coord <= (gas_box.getY2() - 5)) {
       glm::vec2 position(x_coord, y_coord);
@@ -32,7 +32,7 @@ void Sketchpad::HandleBrush(const vec2& brush_screen_coords, ci::Rectf gas_box, 
       glm::vec2 velocity(x_velocity, y_velocity);
 
 
-      Particle new_particle = Particle(velocity, position, ParticleType::kRed);
+      Particle new_particle = Particle(velocity, position, particle_type);
       particles_.push_back(new_particle);
     }
   }
