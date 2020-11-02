@@ -227,32 +227,32 @@ src\engine\particles.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\engine\particles.cpp.s
 .PHONY : src\engine\particles.cpp.s
 
-src\gui\naive_bayes_app.obj: src\gui\naive_bayes_app.cc.obj
+src\gui\ideal_gas_app.obj: src\gui\ideal_gas_app.cc.obj
 
-.PHONY : src\gui\naive_bayes_app.obj
+.PHONY : src\gui\ideal_gas_app.obj
 
 # target to build an object file
-src\gui\naive_bayes_app.cc.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.obj
-.PHONY : src\gui\naive_bayes_app.cc.obj
+src\gui\ideal_gas_app.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.obj
+.PHONY : src\gui\ideal_gas_app.cc.obj
 
-src\gui\naive_bayes_app.i: src\gui\naive_bayes_app.cc.i
+src\gui\ideal_gas_app.i: src\gui\ideal_gas_app.cc.i
 
-.PHONY : src\gui\naive_bayes_app.i
+.PHONY : src\gui\ideal_gas_app.i
 
 # target to preprocess a source file
-src\gui\naive_bayes_app.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.i
-.PHONY : src\gui\naive_bayes_app.cc.i
+src\gui\ideal_gas_app.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.i
+.PHONY : src\gui\ideal_gas_app.cc.i
 
-src\gui\naive_bayes_app.s: src\gui\naive_bayes_app.cc.s
+src\gui\ideal_gas_app.s: src\gui\ideal_gas_app.cc.s
 
-.PHONY : src\gui\naive_bayes_app.s
+.PHONY : src\gui\ideal_gas_app.s
 
 # target to generate assembly for a file
-src\gui\naive_bayes_app.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.s
-.PHONY : src\gui\naive_bayes_app.cc.s
+src\gui\ideal_gas_app.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.s
+.PHONY : src\gui\ideal_gas_app.cc.s
 
 src\gui\sketchpad.obj: src\gui\sketchpad.cc.obj
 
@@ -354,9 +354,9 @@ help:
 	@echo ... src/engine/particles.obj
 	@echo ... src/engine/particles.i
 	@echo ... src/engine/particles.s
-	@echo ... src/gui/naive_bayes_app.obj
-	@echo ... src/gui/naive_bayes_app.i
-	@echo ... src/gui/naive_bayes_app.s
+	@echo ... src/gui/ideal_gas_app.obj
+	@echo ... src/gui/ideal_gas_app.i
+	@echo ... src/gui/ideal_gas_app.s
 	@echo ... src/gui/sketchpad.obj
 	@echo ... src/gui/sketchpad.i
 	@echo ... src/gui/sketchpad.s

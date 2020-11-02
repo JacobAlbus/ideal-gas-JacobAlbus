@@ -23,6 +23,7 @@ void Sketchpad::HandleBrush(const vec2& brush_screen_coords, ci::Rectf gas_box,
   double y_coord = brush_screen_coords.y;
 
   message = std::to_string(particles_.size());
+
   if(x_coord >= (gas_box.getX1() + 5) && x_coord <= (gas_box.getX2() - 5)) {
     if(y_coord >= (gas_box.getY1() + 5) && y_coord <= (gas_box.getY2() - 5)) {
       glm::vec2 position(x_coord, y_coord);
@@ -30,7 +31,6 @@ void Sketchpad::HandleBrush(const vec2& brush_screen_coords, ci::Rectf gas_box,
       double x_velocity = (double)rand()/RAND_MAX*2.0-1.0;
       double y_velocity = (double)rand()/RAND_MAX*2.0-1.0;
       glm::vec2 velocity(x_velocity, y_velocity);
-
 
       Particle new_particle = Particle(velocity, position, particle_type);
       particles_.push_back(new_particle);

@@ -80,23 +80,23 @@ CMakeFiles\ideal-gas-visualizer.dir\ideal_gas_main.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ideal-gas-visualizer.dir\ideal_gas_main.cpp.s /c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\ideal_gas_main.cpp
 <<
 
-CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.obj: CMakeFiles\ideal-gas-visualizer.dir\flags.make
-CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.obj: ..\src\gui\naive_bayes_app.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ideal-gas-visualizer.dir/src/gui/naive_bayes_app.cc.obj"
+CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.obj: CMakeFiles\ideal-gas-visualizer.dir\flags.make
+CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.obj: ..\src\gui\ideal_gas_app.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ideal-gas-visualizer.dir/src/gui/ideal_gas_app.cc.obj"
 	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.obj /FdCMakeFiles\ideal-gas-visualizer.dir\ /FS -c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\gui\naive_bayes_app.cc
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.obj /FdCMakeFiles\ideal-gas-visualizer.dir\ /FS -c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\gui\ideal_gas_app.cc
 <<
 
-CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ideal-gas-visualizer.dir/src/gui/naive_bayes_app.cc.i"
-	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe > CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\gui\naive_bayes_app.cc
+CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ideal-gas-visualizer.dir/src/gui/ideal_gas_app.cc.i"
+	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe > CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\gui\ideal_gas_app.cc
 <<
 
-CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ideal-gas-visualizer.dir/src/gui/naive_bayes_app.cc.s"
+CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ideal-gas-visualizer.dir/src/gui/ideal_gas_app.cc.s"
 	C:\PROGRA~2\MICROS~1.0\VC\bin\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.s /c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\gui\naive_bayes_app.cc
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.s /c C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\my-projects\ideal-gas-JacobAlbus\src\gui\ideal_gas_app.cc
 <<
 
 CMakeFiles\ideal-gas-visualizer.dir\src\gui\sketchpad.cc.obj: CMakeFiles\ideal-gas-visualizer.dir\flags.make
@@ -159,7 +159,7 @@ CMakeFiles\ideal-gas-visualizer.dir\src\engine\particles.cpp.s: cmake_force
 # Object files for target ideal-gas-visualizer
 ideal__gas__visualizer_OBJECTS = \
 "CMakeFiles\ideal-gas-visualizer.dir\ideal_gas_main.cpp.obj" \
-"CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.obj" \
+"CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.obj" \
 "CMakeFiles\ideal-gas-visualizer.dir\src\gui\sketchpad.cc.obj" \
 "CMakeFiles\ideal-gas-visualizer.dir\src\engine\particle.cpp.obj" \
 "CMakeFiles\ideal-gas-visualizer.dir\src\engine\particles.cpp.obj"
@@ -168,7 +168,7 @@ ideal__gas__visualizer_OBJECTS = \
 ideal__gas__visualizer_EXTERNAL_OBJECTS =
 
 Debug\ideal-gas-visualizer\ideal-gas-visualizer.exe: CMakeFiles\ideal-gas-visualizer.dir\ideal_gas_main.cpp.obj
-Debug\ideal-gas-visualizer\ideal-gas-visualizer.exe: CMakeFiles\ideal-gas-visualizer.dir\src\gui\naive_bayes_app.cc.obj
+Debug\ideal-gas-visualizer\ideal-gas-visualizer.exe: CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.obj
 Debug\ideal-gas-visualizer\ideal-gas-visualizer.exe: CMakeFiles\ideal-gas-visualizer.dir\src\gui\sketchpad.cc.obj
 Debug\ideal-gas-visualizer\ideal-gas-visualizer.exe: CMakeFiles\ideal-gas-visualizer.dir\src\engine\particle.cpp.obj
 Debug\ideal-gas-visualizer\ideal-gas-visualizer.exe: CMakeFiles\ideal-gas-visualizer.dir\src\engine\particles.cpp.obj

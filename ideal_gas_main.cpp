@@ -1,4 +1,4 @@
-#include "gui/naive_bayes_app.h"
+#include "gui/ideal_gas_app.h"
 
 using ideal_gas::visualizer::NaiveBayesApp;
 
