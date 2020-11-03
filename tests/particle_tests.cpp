@@ -17,8 +17,8 @@ TEST_CASE("Constructor Properly Instantiates Particle") {
     REQUIRE(red_particle.GetColor() == ci::Color(1, 0, 0));
   }
 
-  SECTION("Red Particle") {
-    Particle red_particle = Particle(velocity, position, ParticleType::kRed);
+  SECTION("Blue Particle") {
+    Particle red_particle = Particle(velocity, position, ParticleType::kBlue);
     REQUIRE(red_particle.GetPosition() == glm::vec2(5.0, 6.0));
     REQUIRE(red_particle.GetVelocity() == glm::vec2(0.5, -1.0));
     REQUIRE(red_particle.GetRadius() == 6);
@@ -26,7 +26,7 @@ TEST_CASE("Constructor Properly Instantiates Particle") {
     REQUIRE(red_particle.GetColor() == ci::Color(0, 0, 1));
   }
 
-  SECTION("Red Particle") {
+  SECTION("Default Particle") {
     Particle red_particle = Particle(velocity, position, ParticleType::kDefault);
     REQUIRE(red_particle.GetPosition() == glm::vec2(5.0, 6.0));
     REQUIRE(red_particle.GetVelocity() == glm::vec2(0.5, -1.0));
@@ -78,7 +78,7 @@ TEST_CASE("Update Position Works Correctly"){
   REQUIRE(particle.GetPosition()[1] == Approx(7.0));
 }
 
-TEST_CASE("IsParticlesInOppositeDirections Returns Proper Boolean") {
+TEST_CASE("IsParticlesInContact Returns Proper Boolean") {
   SECTION("True") {
     glm::vec2 position1(5.0, 6.0);
     glm::vec2 velocity1(0.5, -1.0);
@@ -101,5 +101,31 @@ TEST_CASE("IsParticlesInOppositeDirections Returns Proper Boolean") {
     Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
 
     REQUIRE_FALSE(particle1.IsParticlesInContact(particle2));
+  }
+}
+
+TEST_CASE("IsParticlesMovingCloser Returns Proper Boolean") {
+  SECTION("Returns True") {
+    glm::vec2 position1(5.0, 6.0);
+    glm::vec2 velocity1(0.5, -1.0);
+    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+
+    glm::vec2 position2(6.0, 7.0);
+    glm::vec2 velocity2(1.0, -2.0);
+    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+
+    REQUIRE(particle1.IsParticlesMovingCloser(particle2));
+  }
+
+  SECTION("Returns False") {
+    glm::vec2 position1(5.0, 6.0);
+    glm::vec2 velocity1(-0.5, -1.0);
+    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+
+    glm::vec2 position2(6.0, 7.0);
+    glm::vec2 velocity2(1.0, 2.0);
+    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+
+    REQUIRE_FALSE(particle1.IsParticlesMovingCloser(particle2));
   }
 }

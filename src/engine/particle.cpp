@@ -29,7 +29,7 @@ Particle::Particle(const glm::vec2& velocity,
 
 void Particle::UpdateVelocity(Particle& particle_in_contact) {
   if(IsParticlesInContact(particle_in_contact) &&
-     IsParticlesInOppositeDirections(particle_in_contact)){
+     IsParticlesMovingCloser(particle_in_contact)){
 
     glm::vec2 updated_velocity1 =
         CalculateUpdatedVelocity(particle_in_contact);
@@ -91,7 +91,7 @@ bool Particle::IsParticlesInContact(const Particle &particle2) const {
   return false;
 }
 
-bool Particle::IsParticlesInOppositeDirections(const Particle& particle2) const {
+bool Particle::IsParticlesMovingCloser(const Particle& particle2) const {
   glm::vec2 position_diff = position_ - particle2.position_;
   glm::vec2 velocity_diff = velocity_ - particle2.velocity_;
   return glm::dot(velocity_diff, position_diff) < 0;

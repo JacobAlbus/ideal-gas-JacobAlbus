@@ -69,7 +69,7 @@ class Particle {
    *         particles are heading towards each other
    */
     // made public for testing purposes
-  bool IsParticlesInOppositeDirections(const Particle& particle2) const;
+  bool IsParticlesMovingCloser(const Particle& particle2) const;
 
  private:
   /**
