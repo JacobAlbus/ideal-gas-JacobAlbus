@@ -78,54 +78,54 @@ TEST_CASE("Update Position Works Correctly"){
   REQUIRE(particle.GetPosition()[1] == Approx(7.0));
 }
 
-TEST_CASE("IsParticlesInContact Returns Proper Boolean") {
-  SECTION("True") {
-    glm::vec2 position1(5.0, 6.0);
-    glm::vec2 velocity1(0.5, -1.0);
-    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+TEST_CASE("IsParticlesInContact Will Allow Velocities To Be Updated") {
+  glm::vec2 position1(5.0, 6.0);
+  glm::vec2 velocity1(0.5, -1.0);
+  Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
 
-    glm::vec2 position2(6.0, 7.0);
-    glm::vec2 velocity2(1.0, -2.0);
-    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+  glm::vec2 position2(6.0, 7.0);
+  glm::vec2 velocity2(1.0, -2.0);
+  Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
 
-    REQUIRE(particle1.IsParticlesInContact(particle2));
-  }
-
-  SECTION("False") {
-    glm::vec2 position1(511.0, 6.0);
-    glm::vec2 velocity1(0.5, -1.0);
-    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
-
-    glm::vec2 position2(6.0, 7.0);
-    glm::vec2 velocity2(1.0, -2.0);
-    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
-
-    REQUIRE_FALSE(particle1.IsParticlesInContact(particle2));
-  }
+  particle1.UpdateVelocity(particle2);
+  REQUIRE_FALSE(particle1.GetVelocity() == velocity1);
 }
 
-TEST_CASE("IsParticlesMovingCloser Returns Proper Boolean") {
-  SECTION("Returns True") {
-    glm::vec2 position1(5.0, 6.0);
-    glm::vec2 velocity1(0.5, -1.0);
-    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+TEST_CASE("IsParticlesInContact Will Stop Velocities From Being Updated") {
+  glm::vec2 position1(511.0, 6.0);
+  glm::vec2 velocity1(0.5, -1.0);
+  Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
 
-    glm::vec2 position2(6.0, 7.0);
-    glm::vec2 velocity2(1.0, -2.0);
-    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+  glm::vec2 position2(6.0, 7.0);
+  glm::vec2 velocity2(1.0, -2.0);
+  Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
 
-    REQUIRE(particle1.IsParticlesMovingCloser(particle2));
-  }
+  particle1.UpdateVelocity(particle2);
+  REQUIRE(particle1.GetVelocity() == velocity1);
+}
 
-  SECTION("Returns False") {
-    glm::vec2 position1(5.0, 6.0);
-    glm::vec2 velocity1(-0.5, -1.0);
-    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+TEST_CASE("IsParticlesMovingCloser Will Allow Velocities To Be Updated") {
+  glm::vec2 position1(5.0, 6.0);
+  glm::vec2 velocity1(0.5, -1.0);
+  Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
 
-    glm::vec2 position2(6.0, 7.0);
-    glm::vec2 velocity2(1.0, 2.0);
-    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+  glm::vec2 position2(6.0, 7.0);
+  glm::vec2 velocity2(1.0, -2.0);
+  Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
 
-    REQUIRE_FALSE(particle1.IsParticlesMovingCloser(particle2));
-  }
+  particle1.UpdateVelocity(particle2);
+  REQUIRE(particle1.GetVelocity() == velocity1);
+}
+
+TEST_CASE("IsParticlesMovingCloser Will Stop Velocities From Being Updated") {
+  glm::vec2 position1(5.0, 6.0);
+  glm::vec2 velocity1(-0.5, -1.0);
+  Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+
+  glm::vec2 position2(6.0, 7.0);
+  glm::vec2 velocity2(1.0, 2.0);
+  Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+
+  particle1.UpdateVelocity(particle2);
+  REQUIRE_FALSE(particle1.GetVelocity() == velocity1);
 }

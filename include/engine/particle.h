@@ -52,13 +52,13 @@ class Particle {
 
   const ci::Color& GetColor() const;
 
+ private:
   /**
    * Checks to see if particle's are in contact with each other
    * @param A particle object
    * @param Another particle object
    * @return boolean corresponding to whether or not particles are in contact
    */
-   // made public for testing purposes
   bool IsParticlesInContact(const Particle& particle2) const;
 
   /**
@@ -68,10 +68,8 @@ class Particle {
    * @return boolean corresponding to whether or not
    *         particles are heading towards each other
    */
-    // made public for testing purposes
   bool IsParticlesMovingCloser(const Particle& particle2) const;
 
- private:
   /**
    * Calculates updated velocity for particle
    * @return updated particle velocity
