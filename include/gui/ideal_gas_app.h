@@ -16,14 +16,14 @@ class NaiveBayesApp : public ci::app::App {
  public:
   NaiveBayesApp();
 
-  //TODO documentations?
+  //TODO add documentation
   void draw() override;
   void update() override;
   void mouseDown(ci::app::MouseEvent event) override;
   void mouseDrag(ci::app::MouseEvent event) override;
   void keyDown(ci::app::KeyEvent event) override;
 
-  const double kWindowSize = 875;
+  const float kWindowSize = 875;
   const double kMargin = 20;
 
  private:

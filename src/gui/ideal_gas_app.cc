@@ -5,11 +5,13 @@ namespace ideal_gas {
 namespace visualizer {
 
 NaiveBayesApp::NaiveBayesApp() : sketchpad_(),
-                                 particle_type_(ParticleType::kRed) {
+                                 particle_type_(ParticleType::kRed),
+                                 gas_window_(ci::Rectf(kWindowSize / 4 - 200.0f,
+                                                       kWindowSize / 2 - 300.0f,
+                                                       kWindowSize / 4 + 200.0f,
+                                                       kWindowSize / 2 + 300.0f)) {
+
   ci::app::setWindowSize((int) kWindowSize, (int) kWindowSize);
-  //TODO how make const?
-  gas_window_ = ci::Rectf(getWindowWidth()/4-200.0f, getWindowHeight()/2-300.0f,
-                          getWindowWidth()/4+200.0f, getWindowHeight()/2+300.0f);
 }
 
 void NaiveBayesApp::update() {
