@@ -28,7 +28,6 @@ Particle::Particle(const glm::vec2& velocity,
 }
 
 void Particle::UpdateVelocity(Particle& particle_in_contact) {
-  //TODO how should I handle this keyword?
   if(IsParticlesInContact(particle_in_contact) &&
      IsParticlesInOppositeDirections(particle_in_contact)){
 
@@ -81,7 +80,6 @@ glm::vec2 Particle::CalculateUpdatedVelocity(const Particle& particle2) {
   return velocity_ - (position_diff * static_cast<float>(temp));
 }
 
-// TODO make static (use *this keyword instead)
 bool Particle::IsParticlesInContact(const Particle &particle2) const {
   if(GetPosition() != particle2.GetPosition()) {
     double touching_radius = GetRadius() + particle2.GetRadius();
