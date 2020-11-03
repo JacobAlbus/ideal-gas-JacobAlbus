@@ -5,6 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/src/engine/particle.cpp" "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/CMakeFiles/ideal-gas-tests.dir/src/engine/particle.cpp.obj"
+  "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/src/gui/ideal_gas_app.cc" "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/CMakeFiles/ideal-gas-tests.dir/src/gui/ideal_gas_app.cc.obj"
+  "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/src/gui/sketchpad.cc" "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/CMakeFiles/ideal-gas-tests.dir/src/gui/sketchpad.cc.obj"
   "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/tests/particle_tests.cpp" "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/CMakeFiles/ideal-gas-tests.dir/tests/particle_tests.cpp.obj"
   "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/tests/sketchpad_tests.cpp" "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/CMakeFiles/ideal-gas-tests.dir/tests/sketchpad_tests.cpp.obj"
   "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/tests/test_main.cpp" "C:/Users/asus/CLionProjects/cinder_0.9.2_vc2015/my-projects/ideal-gas-JacobAlbus/cmake-build-debug/CMakeFiles/ideal-gas-tests.dir/tests/test_main.cpp.obj"

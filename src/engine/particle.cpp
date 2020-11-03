@@ -29,7 +29,7 @@ Particle::Particle(const glm::vec2& velocity,
 
 void Particle::UpdateVelocity(Particle& particle_in_contact) {
   if(IsParticlesInContact(particle_in_contact) &&
-     IsParticlesMovingCloser(particle_in_contact)){
+     IsParticlesMovingCloser(particle_in_contact)) {
 
     glm::vec2 updated_velocity1 =
         CalculateUpdatedVelocity(particle_in_contact);
@@ -65,14 +65,16 @@ void Particle::UpdatePosition(ci::Rectf gas_box) {
 }
 
 //TODO make not ugly
-glm::vec2 Particle::CalculateUpdatedVelocity(const Particle& particle2) {
+glm::vec2 Particle::CalculateUpdatedVelocity(
+    const Particle& particle_in_contact) {
+
   double mass_coefficient =
-      2 * (particle2.mass_ / (particle2.mass_ + mass_));
-  glm::vec2 velocity_diff = velocity_ - particle2.velocity_;
-  glm::vec2 position_diff = position_ - particle2.position_;
+      2 * (particle_in_contact.mass_ / (particle_in_contact.mass_ + mass_));
+  glm::vec2 velocity_diff = velocity_ - particle_in_contact.velocity_;
+  glm::vec2 position_diff = position_ - particle_in_contact.position_;
 
   double velocity_position_product = glm::dot(velocity_diff, position_diff);
-  double particle_distance = glm::pow(CalculateDistance(particle2), 2);
+  double particle_distance = glm::pow(CalculateDistance(particle_in_contact), 2);
 
   double temp =
       (mass_coefficient * velocity_position_product) / particle_distance;
@@ -80,10 +82,12 @@ glm::vec2 Particle::CalculateUpdatedVelocity(const Particle& particle2) {
   return velocity_ - (position_diff * static_cast<float>(temp));
 }
 
-bool Particle::IsParticlesInContact(const Particle &particle2) const {
-  if(GetPosition() != particle2.GetPosition()) {
-    double touching_radius = GetRadius() + particle2.GetRadius();
-    if(CalculateDistance(particle2) <= touching_radius){
+bool Particle::IsParticlesInContact(
+    const Particle& particle_in_contact) const {
+
+  if(GetPosition() != particle_in_contact.GetPosition()) {
+    double touching_radius = GetRadius() + particle_in_contact.GetRadius();
+    if(CalculateDistance(particle_in_contact) <= touching_radius) {
       return true;
     }
   }
@@ -91,9 +95,10 @@ bool Particle::IsParticlesInContact(const Particle &particle2) const {
   return false;
 }
 
-bool Particle::IsParticlesMovingCloser(const Particle& particle2) const {
-  glm::vec2 position_diff = position_ - particle2.position_;
-  glm::vec2 velocity_diff = velocity_ - particle2.velocity_;
+bool Particle::IsParticlesMovingCloser(
+    const Particle& particle_in_contact) const {
+  glm::vec2 position_diff = position_ - particle_in_contact.position_;
+  glm::vec2 velocity_diff = velocity_ - particle_in_contact.velocity_;
   return glm::dot(velocity_diff, position_diff) < 0;
 }
 

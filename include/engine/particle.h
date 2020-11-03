@@ -59,7 +59,7 @@ class Particle {
    * @param Another particle object
    * @return boolean corresponding to whether or not particles are in contact
    */
-  bool IsParticlesInContact(const Particle& particle2) const;
+  bool IsParticlesInContact(const Particle& particle_in_contact) const;
 
   /**
    * Checks to see if particle's are heading towards each other
@@ -68,13 +68,13 @@ class Particle {
    * @return boolean corresponding to whether or not
    *         particles are heading towards each other
    */
-  bool IsParticlesMovingCloser(const Particle& particle2) const;
+  bool IsParticlesMovingCloser(const Particle& particle_in_contact) const;
 
   /**
    * Calculates updated velocity for particle
    * @return updated particle velocity
    */
-  glm::vec2 CalculateUpdatedVelocity(const Particle& particle2);
+  glm::vec2 CalculateUpdatedVelocity(const Particle& particle_in_contact);
 
   glm::vec2 velocity_;
   glm::vec2 position_;

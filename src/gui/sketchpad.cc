@@ -36,9 +36,8 @@ void Sketchpad::HandleParticleBrush(const vec2& brush_screen_coords,
 
 bool Sketchpad::IsBrushInsideWindow(double x_coord, double y_coord,
                                     const ci::Rectf &gas_window) const {
-
-  if(x_coord >= (gas_window.getX1()) && x_coord <= (gas_window.getX2())) {
-    if(y_coord >= (gas_window.getY1()) && y_coord <= (gas_window.getY2())) {
+  if(x_coord >= gas_window.getX1() && x_coord <= gas_window.getX2()) {
+    if(y_coord >= gas_window.getY1() && y_coord <= gas_window.getY2()) {
       return true;
     }
   }

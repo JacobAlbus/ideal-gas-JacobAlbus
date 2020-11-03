@@ -107,7 +107,7 @@ TEST_CASE("Calculate Distance Returns Correct Distance") {
 }
 
 TEST_CASE("Update Position Works Correctly") {
-  ci::Rectf gas_window(200.0f, 300.0f, 200.0f, 300.0f);
+  ci::Rectf gas_window(0, 0, 200.0f, 300.0f);
 
   SECTION("Position updates w/o touching wall") {
     glm::vec2 position(5.0, 6.0);
@@ -116,7 +116,7 @@ TEST_CASE("Update Position Works Correctly") {
 
     particle.UpdatePosition(gas_window);
     REQUIRE(particle.GetPosition()[0] == Approx(5.5));
-    REQUIRE(particle.GetPosition()[1] == Approx(7.0));
+    REQUIRE(particle.GetPosition()[1] == Approx(5.0));
   }
 
   SECTION("Position Updates After Touching Left Wall") {
@@ -126,7 +126,7 @@ TEST_CASE("Update Position Works Correctly") {
 
     particle.UpdatePosition(gas_window);
     REQUIRE(particle.GetPosition()[0] == Approx(199.5));
-    REQUIRE(particle.GetPosition()[1] == Approx(7.0));
+    REQUIRE(particle.GetPosition()[1] == Approx(5.0));
   }
 
   SECTION("Position Updates After Touching Right Wall") {
@@ -136,7 +136,7 @@ TEST_CASE("Update Position Works Correctly") {
 
     particle.UpdatePosition(gas_window);
     REQUIRE(particle.GetPosition()[0] == Approx(0.5));
-    REQUIRE(particle.GetPosition()[1] == Approx(7.0));
+    REQUIRE(particle.GetPosition()[1] == Approx(5.0));
   }
 
   SECTION("Position Updates After Touching Top Wall") {

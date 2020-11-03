@@ -203,6 +203,7 @@ src\gui\ideal_gas_app.obj: src\gui\ideal_gas_app.cc.obj
 
 # target to build an object file
 src\gui\ideal_gas_app.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\gui\ideal_gas_app.cc.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.obj
 .PHONY : src\gui\ideal_gas_app.cc.obj
 
@@ -212,6 +213,7 @@ src\gui\ideal_gas_app.i: src\gui\ideal_gas_app.cc.i
 
 # target to preprocess a source file
 src\gui\ideal_gas_app.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\gui\ideal_gas_app.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.i
 .PHONY : src\gui\ideal_gas_app.cc.i
 
@@ -221,6 +223,7 @@ src\gui\ideal_gas_app.s: src\gui\ideal_gas_app.cc.s
 
 # target to generate assembly for a file
 src\gui\ideal_gas_app.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\gui\ideal_gas_app.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\ideal_gas_app.cc.s
 .PHONY : src\gui\ideal_gas_app.cc.s
 
@@ -230,6 +233,7 @@ src\gui\sketchpad.obj: src\gui\sketchpad.cc.obj
 
 # target to build an object file
 src\gui\sketchpad.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\gui\sketchpad.cc.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\sketchpad.cc.obj
 .PHONY : src\gui\sketchpad.cc.obj
 
@@ -239,6 +243,7 @@ src\gui\sketchpad.i: src\gui\sketchpad.cc.i
 
 # target to preprocess a source file
 src\gui\sketchpad.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\gui\sketchpad.cc.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\sketchpad.cc.i
 .PHONY : src\gui\sketchpad.cc.i
 
@@ -248,6 +253,7 @@ src\gui\sketchpad.s: src\gui\sketchpad.cc.s
 
 # target to generate assembly for a file
 src\gui\sketchpad.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\gui\sketchpad.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\gui\sketchpad.cc.s
 .PHONY : src\gui\sketchpad.cc.s
 

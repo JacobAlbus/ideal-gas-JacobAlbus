@@ -15,10 +15,10 @@ NaiveBayesApp::NaiveBayesApp() : sketchpad_(),
 
 void NaiveBayesApp::update() {
   std::vector<Particle>& particles = sketchpad_.GetParticles();
-  for(auto& particle1 : particles) {
-    particle1.UpdatePosition(gas_window_);
-    for(auto& particle2 : particles) {
-      particle1.UpdateVelocity(particle2);
+  for(auto& particle : particles) {
+    particle.UpdatePosition(gas_window_);
+    for(auto& particle_in_contact : particles) {
+      particle.UpdateVelocity(particle_in_contact);
     }
   }
 }
@@ -64,7 +64,7 @@ void NaiveBayesApp::keyDown(ci::app::KeyEvent event) {
       break;
     }
     case ci::app::KeyEvent::KEY_SPACE: {
-      if(particle_type_ == ParticleType::kBlue){
+      if(particle_type_ == ParticleType::kBlue) {
         particle_type_ = ParticleType::kRed;
       } else {
         particle_type_ = ParticleType::kBlue;
