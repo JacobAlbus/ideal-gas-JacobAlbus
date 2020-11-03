@@ -8,6 +8,7 @@ namespace ideal_gas {
 enum ParticleType {
   kRed,
   kBlue,
+  kDefault,   // made for testing purposes
 };
 
 class Particle {
@@ -41,19 +42,15 @@ class Particle {
    */
   double CalculateDistance(const Particle& other_particle) const;
 
-  const glm::vec2& GetVelocity() const;
+  const glm::vec2& GetVelocity() const;  // made for testing purposes
 
   const glm::vec2& GetPosition() const;
 
   size_t GetRadius() const;
 
+  double GetMass() const;   // made for testing purposes
+
   const ci::Color& GetColor() const;
- private:
-  /**
-   * Calculates updated velocity for particle
-   * @return updated particle velocity
-   */
-  glm::vec2 CalculateUpdatedVelocity(const Particle& particle2);
 
   /**
    * Checks to see if particle's are in contact with each other
@@ -61,16 +58,25 @@ class Particle {
    * @param Another particle object
    * @return boolean corresponding to whether or not particles are in contact
    */
+   // made public for testing purposes
   bool IsParticlesInContact(const Particle& particle2) const;
 
   /**
- * Checks to see if particle's are heading towards each other
- * @param A particle object
- * @param Another particle object
- * @return boolean corresponding to whether or not
- *         particles are heading towards each other
- */
+   * Checks to see if particle's are heading towards each other
+   * @param A particle object
+   * @param Another particle object
+   * @return boolean corresponding to whether or not
+   *         particles are heading towards each other
+   */
+    // made public for testing purposes
   bool IsParticlesInOppositeDirections(const Particle& particle2) const;
+
+ private:
+  /**
+   * Calculates updated velocity for particle
+   * @return updated particle velocity
+   */
+  glm::vec2 CalculateUpdatedVelocity(const Particle& particle2);
 
   glm::vec2 velocity_;
   glm::vec2 position_;

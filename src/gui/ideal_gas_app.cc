@@ -6,17 +6,15 @@ namespace visualizer {
 
 NaiveBayesApp::NaiveBayesApp() : sketchpad_(),
                                  particle_type_(ParticleType::kRed),
-                                 gas_window_(ci::Rectf(kWindowSize / 4 - 200.0f,
-                                                       kWindowSize / 2 - 300.0f,
-                                                       kWindowSize / 4 + 200.0f,
-                                                       kWindowSize / 2 + 300.0f)) {
-
+                                 gas_window_(ci::Rectf(kWindowSize / 4 - kGasWindowWidth,
+                                                       kWindowSize / 2 - kGasWindowHeight,
+                                                       kWindowSize / 4 + kGasWindowWidth,
+                                                       kWindowSize / 2 + kGasWindowHeight)) {
   ci::app::setWindowSize((int) kWindowSize, (int) kWindowSize);
 }
 
 void NaiveBayesApp::update() {
   std::vector<Particle>& particles = sketchpad_.GetParticles();
-  //TODO get better names
   for(auto& particle1 : particles) {
     particle1.UpdatePosition(gas_window_);
     for(auto& particle2 : particles) {

@@ -46,6 +46,8 @@ class NaiveBayesApp : public ci::app::App {
   void keyDown(ci::app::KeyEvent event) override;
 
   const float kWindowSize = 875;
+  const float kGasWindowWidth = 200;
+  const float kGasWindowHeight = 300;
   const double kMargin = 20;
 
  private:

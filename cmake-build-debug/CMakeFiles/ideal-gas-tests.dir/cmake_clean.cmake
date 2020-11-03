@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ideal-gas-tests.dir/src/engine/particle.cpp.obj"
   "CMakeFiles/ideal-gas-tests.dir/tests/particle_tests.cpp.obj"
+  "CMakeFiles/ideal-gas-tests.dir/tests/sketchpad_tests.cpp.obj"
   "CMakeFiles/ideal-gas-tests.dir/tests/test_main.cpp.obj"
   "Debug/ideal-gas-tests/ideal-gas-tests.exe"
   "Debug/ideal-gas-tests/ideal-gas-tests.exe.manifest"

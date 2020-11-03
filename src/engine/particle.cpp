@@ -92,17 +92,17 @@ bool Particle::IsParticlesInContact(const Particle &particle2) const {
 }
 
 bool Particle::IsParticlesInOppositeDirections(const Particle& particle2) const {
-  glm::vec2 position_diff = GetPosition() - particle2.GetPosition();
-  glm::vec2 velocity_diff = GetVelocity() - particle2.GetVelocity();
+  glm::vec2 position_diff = position_ - particle2.position_;
+  glm::vec2 velocity_diff = velocity_ - particle2.velocity_;
   return glm::dot(velocity_diff, position_diff) < 0;
+}
+
+const glm::vec2 & Particle::GetVelocity() const {
+  return velocity_;
 }
 
 const glm::vec2& Particle::GetPosition() const {
   return position_;
-}
-
-const glm::vec2& Particle::GetVelocity() const {
-  return velocity_;
 }
 
 size_t Particle::GetRadius() const {
@@ -111,6 +111,10 @@ size_t Particle::GetRadius() const {
 
 const ci::Color& Particle::GetColor() const {
   return particle_color_;
+}
+
+double Particle::GetMass() const {
+  return mass_;
 }
 
 } //namespace ideal_gas

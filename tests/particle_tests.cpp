@@ -2,14 +2,41 @@
 #include <catch2/catch.hpp>
 
 #include "engine/particle.h"
-#include "engine/particles.h"
 using namespace ideal_gas;
 
-TEST_CASE("AS"){
-  Particles part = Particles(10);
+TEST_CASE("Constructor Properly Instantiates Particle") {
+  glm::vec2 position(5.0, 6.0);
+  glm::vec2 velocity(0.5, -1.0);
+
+  SECTION("Red Particle") {
+    Particle red_particle = Particle(velocity, position, ParticleType::kRed);
+    REQUIRE(red_particle.GetPosition() == glm::vec2(5.0, 6.0));
+    REQUIRE(red_particle.GetVelocity() == glm::vec2(0.5, -1.0));
+    REQUIRE(red_particle.GetRadius() == 3);
+    REQUIRE(red_particle.GetMass() == 1);
+    REQUIRE(red_particle.GetColor() == ci::Color(1, 0, 0));
+  }
+
+  SECTION("Red Particle") {
+    Particle red_particle = Particle(velocity, position, ParticleType::kRed);
+    REQUIRE(red_particle.GetPosition() == glm::vec2(5.0, 6.0));
+    REQUIRE(red_particle.GetVelocity() == glm::vec2(0.5, -1.0));
+    REQUIRE(red_particle.GetRadius() == 6);
+    REQUIRE(red_particle.GetMass() == 4);
+    REQUIRE(red_particle.GetColor() == ci::Color(0, 0, 1));
+  }
+
+  SECTION("Red Particle") {
+    Particle red_particle = Particle(velocity, position, ParticleType::kDefault);
+    REQUIRE(red_particle.GetPosition() == glm::vec2(5.0, 6.0));
+    REQUIRE(red_particle.GetVelocity() == glm::vec2(0.5, -1.0));
+    REQUIRE(red_particle.GetRadius() == 3);
+    REQUIRE(red_particle.GetMass() == 1);
+    REQUIRE(red_particle.GetColor() == ci::Color(1, 0, 0));
+  }
 }
 
-TEST_CASE("Update Particle Properly Updates Velocity"){
+TEST_CASE("Update Particle Properly Updates Velocity") {
   glm::vec2 position1(5.0, 6.0);
   glm::vec2 velocity1(0.5, -1.0);
   Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
@@ -27,18 +54,6 @@ TEST_CASE("Update Particle Properly Updates Velocity"){
   REQUIRE(particle2.GetVelocity()[1] == Approx(-1.75));
 }
 
-TEST_CASE("Update Position Works Correctly"){
-  glm::vec2 position(5.0, 6.0);
-  glm::vec2 velocity(0.5, -1.0);
-  Particle particle = Particle(velocity, position, ParticleType::kRed);
-
-  ci::Rectf gas_box(200.0f, 300.0f, 200.0f, 300.0f);
-
-  particle.UpdatePosition(gas_box);
-  REQUIRE(particle.GetPosition()[0] == Approx(5.5));
-  REQUIRE(particle.GetPosition()[1] == Approx(7.0));
-}
-
 TEST_CASE("Calculate Distance Returns Correct Distance"){
   glm::vec2 position1(5.0, 6.0);
   glm::vec2 velocity1(0.5, -1.0);
@@ -51,3 +66,40 @@ TEST_CASE("Calculate Distance Returns Correct Distance"){
   REQUIRE(particle1.CalculateDistance(particle2) == Approx(1.414213562));
 }
 
+TEST_CASE("Update Position Works Correctly"){
+  glm::vec2 position(5.0, 6.0);
+  glm::vec2 velocity(0.5, -1.0);
+  Particle particle = Particle(velocity, position, ParticleType::kRed);
+
+  ci::Rectf gas_box(200.0f, 300.0f, 200.0f, 300.0f);
+
+  particle.UpdatePosition(gas_box);
+  REQUIRE(particle.GetPosition()[0] == Approx(5.5));
+  REQUIRE(particle.GetPosition()[1] == Approx(7.0));
+}
+
+TEST_CASE("IsParticlesInOppositeDirections Returns Proper Boolean") {
+  SECTION("True") {
+    glm::vec2 position1(5.0, 6.0);
+    glm::vec2 velocity1(0.5, -1.0);
+    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+
+    glm::vec2 position2(6.0, 7.0);
+    glm::vec2 velocity2(1.0, -2.0);
+    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+
+    REQUIRE(particle1.IsParticlesInContact(particle2));
+  }
+
+  SECTION("False") {
+    glm::vec2 position1(511.0, 6.0);
+    glm::vec2 velocity1(0.5, -1.0);
+    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+
+    glm::vec2 position2(6.0, 7.0);
+    glm::vec2 velocity2(1.0, -2.0);
+    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+
+    REQUIRE_FALSE(particle1.IsParticlesInContact(particle2));
+  }
+}

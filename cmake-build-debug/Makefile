@@ -278,6 +278,33 @@ tests\particle_tests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\tests\particle_tests.cpp.s
 .PHONY : tests\particle_tests.cpp.s
 
+tests\sketchpad_tests.obj: tests\sketchpad_tests.cpp.obj
+
+.PHONY : tests\sketchpad_tests.obj
+
+# target to build an object file
+tests\sketchpad_tests.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\tests\sketchpad_tests.cpp.obj
+.PHONY : tests\sketchpad_tests.cpp.obj
+
+tests\sketchpad_tests.i: tests\sketchpad_tests.cpp.i
+
+.PHONY : tests\sketchpad_tests.i
+
+# target to preprocess a source file
+tests\sketchpad_tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\tests\sketchpad_tests.cpp.i
+.PHONY : tests\sketchpad_tests.cpp.i
+
+tests\sketchpad_tests.s: tests\sketchpad_tests.cpp.s
+
+.PHONY : tests\sketchpad_tests.s
+
+# target to generate assembly for a file
+tests\sketchpad_tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\tests\sketchpad_tests.cpp.s
+.PHONY : tests\sketchpad_tests.cpp.s
+
 tests\test_main.obj: tests\test_main.cpp.obj
 
 .PHONY : tests\test_main.obj
@@ -330,6 +357,9 @@ help:
 	@echo ... tests/particle_tests.obj
 	@echo ... tests/particle_tests.i
 	@echo ... tests/particle_tests.s
+	@echo ... tests/sketchpad_tests.obj
+	@echo ... tests/sketchpad_tests.i
+	@echo ... tests/sketchpad_tests.s
 	@echo ... tests/test_main.obj
 	@echo ... tests/test_main.i
 	@echo ... tests/test_main.s

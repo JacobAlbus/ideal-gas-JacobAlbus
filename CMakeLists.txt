@@ -38,7 +38,7 @@ include("${CINDER_PATH}/proj/cmake/modules/cinderMakeApp.cmake")
 
 list(APPEND ENGINE_SOURCE_FILES src/engine/particle.cpp)
 list(APPEND GUI_SOURCE_FILES src/gui/ideal_gas_app.cc src/gui/sketchpad.cc)
-list(APPEND TEST_FILES tests/particle_tests.cpp)
+list(APPEND TEST_FILES tests/particle_tests.cpp tests/sketchpad_tests.cpp)
 
 ci_make_app(
         APP_NAME        ideal-gas-visualizer
