@@ -45,10 +45,7 @@ void NaiveBayesApp::mouseDown(ci::app::MouseEvent event) {
 }
 
 void NaiveBayesApp::mouseDrag(ci::app::MouseEvent event) {
-  size_t particle_count = sketchpad_.GetParticles().size();
-  message_ = "Particle Count: " + std::to_string(particle_count);
-
-  sketchpad_.HandleParticleBrush(event.getPos(), gas_window_, particle_type_);
+  mouseDown(event);
 }
 
 void NaiveBayesApp::keyDown(ci::app::KeyEvent event) {
@@ -63,11 +60,18 @@ void NaiveBayesApp::keyDown(ci::app::KeyEvent event) {
       exit(0);
       break;
     }
+    //TODO make it not so "hard-coded"
     case ci::app::KeyEvent::KEY_SPACE: {
-      if(particle_type_ == ParticleType::kBlue) {
-        particle_type_ = ParticleType::kRed;
-      } else {
-        particle_type_ = ParticleType::kBlue;
+      switch(particle_type_){
+        case ParticleType::kRed:
+          particle_type_ = ParticleType::kBlue;
+          break;
+        case ParticleType::kBlue:
+          particle_type_ = ParticleType::kGreen;
+          break;
+        case ParticleType::kGreen:
+          particle_type_ = ParticleType::kRed;
+          break;
       }
     }
   }

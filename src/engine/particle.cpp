@@ -12,17 +12,22 @@ Particle::Particle(const glm::vec2& velocity,
   switch(type) {
     case ParticleType::kRed:
       mass_ = 1;
-      radius_ = 3;
+      radius_ = 2;
       particle_color_ = ci::Color(1, 0, 0);
       break;
     case ParticleType::kBlue:
-      mass_ = 4;
-      radius_ = 6;
+      mass_ = 3;
+      radius_ = 4;
       particle_color_ = ci::Color(0, 0, 1);
+      break;
+    case ParticleType::kGreen:
+      mass_ = 6;
+      radius_ = 6;
+      particle_color_ = ci::Color(0, 1, 0);
       break;
     default:
       mass_ = 1;
-      radius_ = 3;
+      radius_ = 2;
       particle_color_ = ci::Color(1, 0, 0);
   }
 }

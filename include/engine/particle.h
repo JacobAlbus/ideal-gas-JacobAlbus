@@ -8,6 +8,7 @@ namespace ideal_gas {
 enum ParticleType {
   kRed,
   kBlue,
+  kGreen,
   kDefault,   // made for testing purposes
 };
 

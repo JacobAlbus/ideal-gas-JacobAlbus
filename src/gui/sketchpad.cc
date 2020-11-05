@@ -1,4 +1,5 @@
 #include <gui/sketchpad.h>
+#include <cinder/Rand.h>
 
 namespace ideal_gas {
 
@@ -25,8 +26,8 @@ void Sketchpad::HandleParticleBrush(const vec2& brush_screen_coords,
   if(IsBrushInsideWindow(x_coord, y_coord, gas_window)) {
     glm::vec2 position(x_coord, y_coord);
 
-    double x_velocity = (double)rand()/RAND_MAX*2.0-1.0;
-    double y_velocity = (double)rand()/RAND_MAX*2.0-1.0;
+    float x_velocity = ci::randFloat(-2, 2);
+    float y_velocity = ci::randFloat(-2, 2);
     glm::vec2 velocity(x_velocity, y_velocity);
 
     Particle new_particle = Particle(velocity, position, particle_type);
