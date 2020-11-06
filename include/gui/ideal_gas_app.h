@@ -65,7 +65,8 @@ class IdealGasApp : public ci::app::App {
   size_t particle_count_;
   ParticleType particle_type_;
   ci::Rectf gas_window_;
-  std::string message_;
+  std::string particle_count_message_;
+  std::string particle_type_message_;
   SimulationUI simulation_ui_;
   Simulation simulation_;
 };

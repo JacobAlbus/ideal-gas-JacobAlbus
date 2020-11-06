@@ -7,7 +7,8 @@ namespace visualizer {
 IdealGasApp::IdealGasApp() : simulation_ui_(),
                              particle_type_(ParticleType::kRed),
                              particle_count_(0),
-                             message_("Particle Count: 0"),
+                             particle_count_message_("Particle Count: 0"),
+                             particle_type_message_("Brush Particle Type: Red"),
                              gas_window_(ci::Rectf(kWindowSize / 4 - kGasWindowWidth,
                                                    kWindowSize / 2 - kGasWindowHeight,
                                                    kWindowSize / 4 + kGasWindowWidth,
@@ -29,15 +30,18 @@ void IdealGasApp::draw() {
   simulation_ui_.Draw(simulation_);
 
   ci::gl::drawStringCentered(
-      message_,
+      particle_count_message_,
       glm::vec2(kWindowSize / 2, kMargin / 2), ci::Color("white"));
+  ci::gl::drawStringCentered(
+      particle_type_message_,
+      glm::vec2(kWindowSize / 2, kMargin/ 0.75), ci::Color("white"));
 
   ci::gl::color(255, 255, 255);
   ci::gl::drawStrokedRect(gas_window_);
 }
 
 void IdealGasApp::mouseDown(ci::app::MouseEvent event) {
-  message_ = "Particle Count: " + std::to_string(particle_count_);
+  particle_count_message_ = "Particle Count: " + std::to_string(particle_count_);
 
   simulation_ui_.HandleParticleBrush(event.getPos(), gas_window_,
                                      particle_type_, simulation_);
@@ -51,7 +55,7 @@ void IdealGasApp::keyDown(ci::app::KeyEvent event) {
   switch (event.getCode()) {
     case ci::app::KeyEvent::KEY_DELETE: {
       simulation_.Clear();
-      message_ = "Particle Count: " + std::to_string(particle_count_);
+      particle_count_message_ = "Particle Count: " + std::to_string(particle_count_);
       break;
     }
     case ci::app::KeyEvent::KEY_ESCAPE: {
@@ -69,12 +73,15 @@ void IdealGasApp::SwitchParticleType(){
   switch(particle_type_){
     case ParticleType::kRed:
       particle_type_ = ParticleType::kBlue;
+      particle_type_message_ = "Brush Particle Type: Blue";
       break;
     case ParticleType::kBlue:
       particle_type_ = ParticleType::kGreen;
+      particle_type_message_ = "Brush Particle Type: Green";
       break;
     case ParticleType::kGreen:
       particle_type_ = ParticleType::kRed;
+      particle_type_message_ = "Brush Particle Type: Red";
       break;
   }
 }
