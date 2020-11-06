@@ -169,6 +169,7 @@ TEST_CASE("Update Position Works Correctly") {
   }
 }
 
+//TODO how should I make it not implementation level specific?
 TEST_CASE("IsParticlesInContact Works Correctly") {
   SECTION("Allows Velocities to be updated") {
     glm::vec2 position1(5.0, 6.0);
