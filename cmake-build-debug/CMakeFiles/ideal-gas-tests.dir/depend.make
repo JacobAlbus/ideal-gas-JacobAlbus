@@ -2292,6 +2292,7 @@ CMakeFiles\ideal-gas-tests.dir\src\gui\sketchpad.cc.obj: C:\Users\asus\CLionProj
 CMakeFiles\ideal-gas-tests.dir\src\gui\sketchpad.cc.obj: C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\include\cinder\Plane.h
 CMakeFiles\ideal-gas-tests.dir\src\gui\sketchpad.cc.obj: C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\include\cinder\PolyLine.h
 CMakeFiles\ideal-gas-tests.dir\src\gui\sketchpad.cc.obj: C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\include\cinder\Quaternion.h
+CMakeFiles\ideal-gas-tests.dir\src\gui\sketchpad.cc.obj: C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\include\cinder\Rand.h
 CMakeFiles\ideal-gas-tests.dir\src\gui\sketchpad.cc.obj: C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\include\cinder\Ray.h
 CMakeFiles\ideal-gas-tests.dir\src\gui\sketchpad.cc.obj: C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\include\cinder\Rect.h
 CMakeFiles\ideal-gas-tests.dir\src\gui\sketchpad.cc.obj: C:\Users\asus\CLionProjects\cinder_0.9.2_vc2015\include\cinder\Shape2d.h

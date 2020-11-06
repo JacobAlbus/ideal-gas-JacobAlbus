@@ -12,7 +12,7 @@ TEST_CASE("Constructor Properly Instantiates Particle") {
     Particle red_particle = Particle(velocity, position, ParticleType::kRed);
     REQUIRE(red_particle.GetPosition() == glm::vec2(5.0, 6.0));
     REQUIRE(red_particle.GetVelocity() == glm::vec2(0.5, -1.0));
-    REQUIRE(red_particle.GetRadius() == 3);
+    REQUIRE(red_particle.GetRadius() == 2);
     REQUIRE(red_particle.GetMass() == 1);
     REQUIRE(red_particle.GetColor() == ci::Color(1, 0, 0));
   }
@@ -21,16 +21,25 @@ TEST_CASE("Constructor Properly Instantiates Particle") {
     Particle red_particle = Particle(velocity, position, ParticleType::kBlue);
     REQUIRE(red_particle.GetPosition() == glm::vec2(5.0, 6.0));
     REQUIRE(red_particle.GetVelocity() == glm::vec2(0.5, -1.0));
-    REQUIRE(red_particle.GetRadius() == 6);
-    REQUIRE(red_particle.GetMass() == 4);
+    REQUIRE(red_particle.GetRadius() == 4);
+    REQUIRE(red_particle.GetMass() == 3);
     REQUIRE(red_particle.GetColor() == ci::Color(0, 0, 1));
+  }
+
+  SECTION("Blue Particle") {
+    Particle red_particle = Particle(velocity, position, ParticleType::kGreen);
+    REQUIRE(red_particle.GetPosition() == glm::vec2(5.0, 6.0));
+    REQUIRE(red_particle.GetVelocity() == glm::vec2(0.5, -1.0));
+    REQUIRE(red_particle.GetRadius() == 6);
+    REQUIRE(red_particle.GetMass() == 6);
+    REQUIRE(red_particle.GetColor() == ci::Color(0, 1, 0));
   }
 
   SECTION("Default Particle") {
     Particle red_particle = Particle(velocity, position, ParticleType::kDefault);
     REQUIRE(red_particle.GetPosition() == glm::vec2(5.0, 6.0));
     REQUIRE(red_particle.GetVelocity() == glm::vec2(0.5, -1.0));
-    REQUIRE(red_particle.GetRadius() == 3);
+    REQUIRE(red_particle.GetRadius() == 2);
     REQUIRE(red_particle.GetMass() == 1);
     REQUIRE(red_particle.GetColor() == ci::Color(1, 0, 0));
   }
@@ -75,7 +84,7 @@ TEST_CASE("Update Particle Properly Updates Velocity") {
   }
 
   SECTION("Red Particle Collides with Blue Particle") {
-    glm::vec2 position1(12.0, 6.0);
+    glm::vec2 position1(9.0, 6.0);
     glm::vec2 velocity1(0.5, -1.0);
     Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
 
@@ -85,13 +94,12 @@ TEST_CASE("Update Particle Properly Updates Velocity") {
 
     particle1.UpdateVelocity(particle2);
 
-    REQUIRE(particle1.GetVelocity()[0] == Approx(1.53784));
-    REQUIRE(particle1.GetVelocity()[1] == Approx(-1.17297));
+    REQUIRE(particle1.GetVelocity()[0] == Approx(1.625));
+    REQUIRE(particle1.GetVelocity()[1] == Approx(-1.375));
 
-    REQUIRE(particle2.GetVelocity()[0] == Approx(0.74054));
-    REQUIRE(particle2.GetVelocity()[1] == Approx(-1.95676));
+    REQUIRE(particle2.GetVelocity()[0] == Approx(0.625));
+    REQUIRE(particle2.GetVelocity()[1] == Approx(-1.875));
   }
-
 }
 
 TEST_CASE("Calculate Distance Returns Correct Distance") {
