@@ -12,10 +12,10 @@ TEST_CASE("IsBrushInsideWindow Stops HandleParticleBrush "
   ci::Rectf gas_window(0, 0, 200.0f, 300.0f);
   glm::vec2 mouse_coords(300, 400);
 
-  Sketchpad sketchpad = Sketchpad();
-  sketchpad.HandleParticleBrush(mouse_coords, gas_window, ParticleType::kRed);
+  SimulationUI simulation_ui = SimulationUI();
+  simulation_ui.HandleParticleBrush(mouse_coords, gas_window, ParticleType::kRed);
 
-  REQUIRE(sketchpad.GetParticles().empty());
+  REQUIRE(simulation_ui.GetParticles().empty());
 }
 
 TEST_CASE("IsBrushInsideWindow Allows HandleParticleBrush "
@@ -24,10 +24,10 @@ TEST_CASE("IsBrushInsideWindow Allows HandleParticleBrush "
   ci::Rectf gas_window(0, 0, 200.0f, 300.0f);
   glm::vec2 mouse_coords(100, 200);
 
-  Sketchpad sketchpad = Sketchpad();
-  sketchpad.HandleParticleBrush(mouse_coords, gas_window, ParticleType::kRed);
+  SimulationUI simulation_ui = SimulationUI();
+  simulation_ui.HandleParticleBrush(mouse_coords, gas_window, ParticleType::kRed);
 
-  REQUIRE(sketchpad.GetParticles().size() == 1);
+  REQUIRE(simulation_ui.GetParticles().size() == 1);
 }
 
 

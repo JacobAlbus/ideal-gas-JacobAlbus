@@ -1,19 +1,19 @@
 #pragma once
 #include "cinder/gl/gl.h"
-#include "engine/particle.h"
+#include "engine/simulation.h"
 
 namespace ideal_gas {
 
 namespace visualizer {
 
-class Sketchpad {
+class SimulationUI {
  public:
-  Sketchpad();
+  SimulationUI();
 
   /**
    * Displays the current state of the sketchpad in the Cinder application.
    */
-  void Draw() const;
+  void Draw(const Simulation& simulation) const;
 
   /**
    * Creates Particle Objects at passed in window coords
@@ -23,14 +23,9 @@ class Sketchpad {
    */
   void HandleParticleBrush(const glm::vec2& brush_screen_coords,
                            const ci::Rectf& gas_window,
-                           ParticleType particle_type);
+                           ParticleType particle_type,
+                           Simulation& simulation);
 
-  /**
-   * Clears list of particles
-   */
-  void Clear();
-
-  std::vector<Particle>& GetParticles();
  private:
   /**
    * Checks to see if Brush Coords are within the window
@@ -42,7 +37,7 @@ class Sketchpad {
   bool IsBrushInsideWindow(double x_coord, double y_coord,
                            const ci::Rectf& gas_window) const;
 
-  std::vector<Particle> particles_;
+  Simulation simulation_;
 };
 
 }  // namespace visualizer

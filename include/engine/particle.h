@@ -50,7 +50,7 @@ class Particle {
 
   size_t GetRadius() const;
 
-  double GetMass() const;   
+  double GetMass() const;
 
   const ci::Color& GetColor() const;
 

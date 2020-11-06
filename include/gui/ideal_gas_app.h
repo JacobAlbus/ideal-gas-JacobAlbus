@@ -53,7 +53,8 @@ class IdealGasApp : public ci::app::App {
   ParticleType particle_type_;
   ci::Rectf gas_window_;
   std::string message_;
-  Sketchpad sketchpad_;
+  SimulationUI simulation_ui_;
+  Simulation simulation_;
 };
 
 }  // namespace visualizer

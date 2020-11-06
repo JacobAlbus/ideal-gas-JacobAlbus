@@ -7,19 +7,34 @@ namespace visualizer {
 
 using glm::vec2;
 
-Sketchpad::Sketchpad() {}
+SimulationUI::SimulationUI() {
+  simulation_ = Simulation();
+}
 
-void Sketchpad::Draw() const {
-  for(const Particle& particle : particles_) {
+void SimulationUI::Draw(const Simulation& simulation) const {
+  for(const Particle& particle : simulation.GetParticles().at(ParticleType::kRed)) {
+    ci::gl::color(particle.GetColor());
+    const auto kRadius = static_cast<float>(particle.GetRadius());
+    ci::gl::drawSolidCircle(particle.GetPosition(), kRadius);
+  }
+
+  for(const Particle& particle : simulation.GetParticles().at(ParticleType::kBlue)) {
+    ci::gl::color(particle.GetColor());
+    const auto kRadius = static_cast<float>(particle.GetRadius());
+    ci::gl::drawSolidCircle(particle.GetPosition(), kRadius);
+  }
+
+  for(const Particle& particle : simulation.GetParticles().at(ParticleType::kGreen)) {
     ci::gl::color(particle.GetColor());
     const auto kRadius = static_cast<float>(particle.GetRadius());
     ci::gl::drawSolidCircle(particle.GetPosition(), kRadius);
   }
 }
 
-void Sketchpad::HandleParticleBrush(const vec2& brush_screen_coords,
-                                    const ci::Rectf& gas_window,
-                                    ParticleType particle_type) {
+void SimulationUI::HandleParticleBrush(const vec2& brush_screen_coords,
+                                       const ci::Rectf& gas_window,
+                                       ParticleType particle_type,
+                                       Simulation& simulation) {
   double x_coord = brush_screen_coords.x;
   double y_coord = brush_screen_coords.y;
 
@@ -31,24 +46,16 @@ void Sketchpad::HandleParticleBrush(const vec2& brush_screen_coords,
     glm::vec2 velocity(x_velocity, y_velocity);
 
     Particle new_particle = Particle(velocity, position, particle_type);
-    particles_.push_back(new_particle);
+    simulation.AddParticle(new_particle, particle_type);
   }
 }
 
-bool Sketchpad::IsBrushInsideWindow(double x_coord, double y_coord,
+bool SimulationUI::IsBrushInsideWindow(double x_coord, double y_coord,
                                     const ci::Rectf &gas_window) const {
   return x_coord >= gas_window.getX1() &&
          x_coord <= gas_window.getX2() &&
          y_coord >= gas_window.getY1() &&
          y_coord <= gas_window.getY2();
-}
-
-void Sketchpad::Clear() {
-  particles_.clear();
-}
-
-std::vector<Particle>& Sketchpad::GetParticles() {
-  return particles_;
 }
 
 }  // namespace visualizer
