@@ -2,7 +2,7 @@
 #include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
-#include "sketchpad.h"
+#include "simulation_ui.h"
 #include "engine/particle.h"
 
 namespace ideal_gas {
@@ -12,9 +12,9 @@ namespace visualizer {
 /**
  * Allows a user to visualize particle collisions in an ideal system
  */
-class NaiveBayesApp : public ci::app::App {
+class IdealGasApp : public ci::app::App {
  public:
-  NaiveBayesApp();
+  IdealGasApp();
 
   /**
    * Draws the particles and various UI elements

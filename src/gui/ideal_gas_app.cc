@@ -4,7 +4,7 @@ namespace ideal_gas {
 
 namespace visualizer {
 
-NaiveBayesApp::NaiveBayesApp() : sketchpad_(),
+IdealGasApp::IdealGasApp() : sketchpad_(),
                                  particle_type_(ParticleType::kRed),
                                  gas_window_(ci::Rectf(kWindowSize / 4 - kGasWindowWidth,
                                                        kWindowSize / 2 - kGasWindowHeight,
@@ -13,7 +13,7 @@ NaiveBayesApp::NaiveBayesApp() : sketchpad_(),
   ci::app::setWindowSize((int) kWindowSize, (int) kWindowSize);
 }
 //TODO create a simulation class to handle particle interactions and store particles
-void NaiveBayesApp::update() {
+void IdealGasApp::update() {
   std::vector<Particle>& particles = sketchpad_.GetParticles();
   for(auto& particle : particles) {
     particle.UpdatePosition(gas_window_);
@@ -23,7 +23,7 @@ void NaiveBayesApp::update() {
   }
 }
 
-void NaiveBayesApp::draw() {
+void IdealGasApp::draw() {
   ci::Color8u background_color(0, 0, 0);
   ci::gl::clear(background_color);
 
@@ -37,18 +37,18 @@ void NaiveBayesApp::draw() {
   ci::gl::drawStrokedRect(gas_window_);
 }
 
-void NaiveBayesApp::mouseDown(ci::app::MouseEvent event) {
+void IdealGasApp::mouseDown(ci::app::MouseEvent event) {
   size_t particle_count = sketchpad_.GetParticles().size();
   message_ = "Particle Count: " + std::to_string(particle_count);
 
   sketchpad_.HandleParticleBrush(event.getPos(), gas_window_, particle_type_);
 }
 
-void NaiveBayesApp::mouseDrag(ci::app::MouseEvent event) {
+void IdealGasApp::mouseDrag(ci::app::MouseEvent event) {
   mouseDown(event);
 }
 
-void NaiveBayesApp::keyDown(ci::app::KeyEvent event) {
+void IdealGasApp::keyDown(ci::app::KeyEvent event) {
   switch (event.getCode()) {
     case ci::app::KeyEvent::KEY_DELETE: {
       sketchpad_.Clear();

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <catch2/catch.hpp>
 
-#include "gui/sketchpad.h"
+#include "gui/simulation_ui.h"
 using namespace ideal_gas;
 using namespace visualizer;
 

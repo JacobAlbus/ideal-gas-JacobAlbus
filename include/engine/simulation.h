@@ -10,6 +10,7 @@ class Simulation {
   Simulation();
  private:
   std::vector<Particle> particles_;
+
 };
 } // namespace ideal_gas
 

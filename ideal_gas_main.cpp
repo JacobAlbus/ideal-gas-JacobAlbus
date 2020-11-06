@@ -1,13 +1,9 @@
 #include "gui/ideal_gas_app.h"
 
-using ideal_gas::visualizer::NaiveBayesApp;
+using ideal_gas::visualizer::IdealGasApp;
 
-void prepareSettings(NaiveBayesApp::Settings* settings) {
-  //TODO change for testing
-  srand((unsigned int)time(NULL));
+void prepareSettings(IdealGasApp::Settings* settings) {
   settings->setResizable(false);
 }
 
-// This line is a macro that expands into an "int main()" function.
-CINDER_APP(NaiveBayesApp, ci::app::RendererGl, prepareSettings);
-
+CINDER_APP(IdealGasApp, ci::app::RendererGl, prepareSettings);
