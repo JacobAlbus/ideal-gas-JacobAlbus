@@ -12,7 +12,7 @@ NaiveBayesApp::NaiveBayesApp() : sketchpad_(),
                                                        kWindowSize / 2 + kGasWindowHeight)) {
   ci::app::setWindowSize((int) kWindowSize, (int) kWindowSize);
 }
-
+//TODO create a simulation class to handle particle interactions and store particles
 void NaiveBayesApp::update() {
   std::vector<Particle>& particles = sketchpad_.GetParticles();
   for(auto& particle : particles) {

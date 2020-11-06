@@ -197,6 +197,36 @@ src\engine\particle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\engine\particle.cpp.s
 .PHONY : src\engine\particle.cpp.s
 
+src\engine\simulation.obj: src\engine\simulation.cpp.obj
+
+.PHONY : src\engine\simulation.obj
+
+# target to build an object file
+src\engine\simulation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\simulation.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\engine\simulation.cpp.obj
+.PHONY : src\engine\simulation.cpp.obj
+
+src\engine\simulation.i: src\engine\simulation.cpp.i
+
+.PHONY : src\engine\simulation.i
+
+# target to preprocess a source file
+src\engine\simulation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\simulation.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\engine\simulation.cpp.i
+.PHONY : src\engine\simulation.cpp.i
+
+src\engine\simulation.s: src\engine\simulation.cpp.s
+
+.PHONY : src\engine\simulation.s
+
+# target to generate assembly for a file
+src\engine\simulation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-tests.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-tests.dir\src\engine\simulation.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ideal-gas-visualizer.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ideal-gas-visualizer.dir\src\engine\simulation.cpp.s
+.PHONY : src\engine\simulation.cpp.s
+
 src\gui\ideal_gas_app.obj: src\gui\ideal_gas_app.cc.obj
 
 .PHONY : src\gui\ideal_gas_app.obj
@@ -354,6 +384,9 @@ help:
 	@echo ... src/engine/particle.obj
 	@echo ... src/engine/particle.i
 	@echo ... src/engine/particle.s
+	@echo ... src/engine/simulation.obj
+	@echo ... src/engine/simulation.i
+	@echo ... src/engine/simulation.s
 	@echo ... src/gui/ideal_gas_app.obj
 	@echo ... src/gui/ideal_gas_app.i
 	@echo ... src/gui/ideal_gas_app.s

@@ -16,7 +16,6 @@ class NaiveBayesApp : public ci::app::App {
  public:
   NaiveBayesApp();
 
-  //TODO add documentation
   /**
    * Draws the particles and various UI elements
    */
