@@ -169,54 +169,58 @@ TEST_CASE("Update Position Works Correctly") {
   }
 }
 
-TEST_CASE("IsParticlesInContact Will Allow Velocities To Be Updated") {
-  glm::vec2 position1(5.0, 6.0);
-  glm::vec2 velocity1(0.5, -1.0);
-  Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+TEST_CASE("IsParticlesInContact Works Correctly") {
+  SECTION("Allows Velocities to be updated") {
+    glm::vec2 position1(5.0, 6.0);
+    glm::vec2 velocity1(0.5, -1.0);
+    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
 
-  glm::vec2 position2(6.0, 7.0);
-  glm::vec2 velocity2(1.0, -2.0);
-  Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+    glm::vec2 position2(6.0, 7.0);
+    glm::vec2 velocity2(1.0, -2.0);
+    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
 
-  particle1.UpdateVelocity(particle2);
-  REQUIRE_FALSE(particle1.GetVelocity() == velocity1);
-}
+    particle1.UpdateVelocity(particle2);
+    REQUIRE_FALSE(particle1.GetVelocity() == velocity1);
+  }
 
-TEST_CASE("IsParticlesInContact Will Stop Velocities From Being Updated") {
-  glm::vec2 position1(511.0, 6.0);
-  glm::vec2 velocity1(0.5, -1.0);
-  Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+  SECTION("Stop Velocities From Being Updated") {
+    glm::vec2 position1(511.0, 6.0);
+    glm::vec2 velocity1(0.5, -1.0);
+    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
 
-  glm::vec2 position2(6.0, 7.0);
-  glm::vec2 velocity2(1.0, -2.0);
-  Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+    glm::vec2 position2(6.0, 7.0);
+    glm::vec2 velocity2(1.0, -2.0);
+    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
 
-  particle1.UpdateVelocity(particle2);
-  REQUIRE(particle1.GetVelocity() == velocity1);
+    particle1.UpdateVelocity(particle2);
+    REQUIRE(particle1.GetVelocity() == velocity1);
+  }
 }
 
 TEST_CASE("IsParticlesMovingCloser Will Allow Velocities To Be Updated") {
-  glm::vec2 position1(5.0, 6.0);
-  glm::vec2 velocity1(0.5, -1.0);
-  Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+  SECTION("Allows Velocities To Be Updated") {
+    glm::vec2 position1(5.0, 6.0);
+    glm::vec2 velocity1(0.5, -1.0);
+    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
 
-  glm::vec2 position2(6.0, 7.0);
-  glm::vec2 velocity2(1.0, -2.0);
-  Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+    glm::vec2 position2(6.0, 7.0);
+    glm::vec2 velocity2(1.0, -2.0);
+    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
 
-  particle1.UpdateVelocity(particle2);
-  REQUIRE_FALSE(particle1.GetVelocity() == velocity1);
-}
+    particle1.UpdateVelocity(particle2);
+    REQUIRE_FALSE(particle1.GetVelocity() == velocity1);
+  }
 
-TEST_CASE("IsParticlesMovingCloser Will Stop Velocities From Being Updated") {
-  glm::vec2 position1(5.0, 6.0);
-  glm::vec2 velocity1(-0.5, -1.0);
-  Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+  SECTION("Stops Velocities From Being Updated") {
+    glm::vec2 position1(5.0, 6.0);
+    glm::vec2 velocity1(-0.5, -1.0);
+    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
 
-  glm::vec2 position2(6.0, 7.0);
-  glm::vec2 velocity2(1.0, 2.0);
-  Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+    glm::vec2 position2(6.0, 7.0);
+    glm::vec2 velocity2(1.0, 2.0);
+    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
 
-  particle1.UpdateVelocity(particle2);
-  REQUIRE(particle1.GetVelocity() == velocity1);
+    particle1.UpdateVelocity(particle2);
+    REQUIRE(particle1.GetVelocity() == velocity1);
+  }
 }

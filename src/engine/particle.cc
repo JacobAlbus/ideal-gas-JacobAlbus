@@ -69,7 +69,7 @@ void Particle::UpdatePosition(ci::Rectf gas_box) {
   position_ += velocity_;
 }
 
-//TODO make not ugly
+
 glm::vec2 Particle::CalculateUpdatedVelocity(
     const Particle& particle_in_contact) {
 
@@ -81,6 +81,7 @@ glm::vec2 Particle::CalculateUpdatedVelocity(
   double velocity_position_product = glm::dot(velocity_diff, position_diff);
   double particle_distance = glm::pow(CalculateDistance(particle_in_contact), 2);
 
+//TODO change name
   double temp =
       (mass_coefficient * velocity_position_product) / particle_distance;
 
