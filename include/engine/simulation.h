@@ -7,13 +7,15 @@
 
 namespace ideal_gas {
 
+//TODO change name
+typedef std::map<ParticleType, std::vector<Particle>> particle_map;
+
 class Simulation {
  public:
   /**
    * Instantiates the Simulation class with an empty map of particles
    */
   Simulation();
-
 
   /**
    * Updates the position and velocity of each particle
@@ -31,10 +33,10 @@ class Simulation {
    */
   void Clear();
 
-  const std::map<ParticleType, std::vector<Particle>>& GetParticles() const;
+  const particle_map& GetParticles() const;
 
  private:
-  std::map<ParticleType, std::vector<Particle>> particles_;
+  particle_map particles_;
 };
 } // namespace ideal_gas
 

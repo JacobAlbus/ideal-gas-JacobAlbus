@@ -5,7 +5,7 @@ namespace ideal_gas {
 Simulation::Simulation() {
   std::vector<Particle> empty;
   std::pair<ParticleType, std::vector<Particle>> new_pair;
-
+  //TODO implement proper enum iterator
   new_pair = std::make_pair(ParticleType::kRed, empty);
   particles_.insert(new_pair);
   new_pair = std::make_pair(ParticleType::kBlue, empty);
@@ -14,26 +14,16 @@ Simulation::Simulation() {
   particles_.insert(new_pair);
 }
 
-//TODO implement proper enum iterator
 void Simulation::ManageParticles(ci::Rectf gas_window) {
-  for(auto& particle : particles_[ParticleType::kRed]) {
-    particle.UpdatePosition(gas_window);
-    for(auto& particle_in_contact : particles_[ParticleType::kRed]) {
-      particle.UpdateVelocity(particle_in_contact);
-    }
-  }
+  //TODO change name
+  for(const auto& map_pair : particles_){
 
-  for(auto& particle : particles_[ParticleType::kBlue]) {
-    particle.UpdatePosition(gas_window);
-    for(auto& particle_in_contact : particles_[ParticleType::kRed]) {
-      particle.UpdateVelocity(particle_in_contact);
-    }
-  }
+    for(Particle& particle : particles_.at(map_pair.first)) {
+      particle.UpdatePosition(gas_window);
 
-  for(auto& particle : particles_[ParticleType::kGreen]) {
-    particle.UpdatePosition(gas_window);
-    for(auto& particle_in_contact : particles_[ParticleType::kRed]) {
-      particle.UpdateVelocity(particle_in_contact);
+      for(auto& particle_in_contact : particles_[ParticleType::kRed]) {
+        particle.UpdateVelocity(particle_in_contact);
+      }
     }
   }
 }
@@ -49,7 +39,7 @@ void Simulation::Clear() {
   }
 }
 
-const std::map<ParticleType, std::vector<Particle>> & Simulation::GetParticles() const {
+const particle_map& Simulation::GetParticles() const {
   return particles_;
 }
 

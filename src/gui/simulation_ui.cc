@@ -12,22 +12,14 @@ SimulationUI::SimulationUI() {
 }
 
 void SimulationUI::Draw(const Simulation& simulation) const {
-  for(const Particle& particle : simulation.GetParticles().at(ParticleType::kRed)) {
-    ci::gl::color(particle.GetColor());
-    const auto kRadius = static_cast<float>(particle.GetRadius());
-    ci::gl::drawSolidCircle(particle.GetPosition(), kRadius);
-  }
-
-  for(const Particle& particle : simulation.GetParticles().at(ParticleType::kBlue)) {
-    ci::gl::color(particle.GetColor());
-    const auto kRadius = static_cast<float>(particle.GetRadius());
-    ci::gl::drawSolidCircle(particle.GetPosition(), kRadius);
-  }
-
-  for(const Particle& particle : simulation.GetParticles().at(ParticleType::kGreen)) {
-    ci::gl::color(particle.GetColor());
-    const auto kRadius = static_cast<float>(particle.GetRadius());
-    ci::gl::drawSolidCircle(particle.GetPosition(), kRadius);
+  const particle_map& particles = simulation.GetParticles();
+  //TODO change name
+  for(const auto& map_pair : particles){
+    for(const Particle& particle : particles.at(map_pair.first)) {
+      ci::gl::color(particle.GetColor());
+      const auto kRadius = static_cast<float>(particle.GetRadius());
+      ci::gl::drawSolidCircle(particle.GetPosition(), kRadius);
+    }
   }
 }
 

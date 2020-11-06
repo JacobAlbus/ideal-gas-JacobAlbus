@@ -50,6 +50,19 @@ class IdealGasApp : public ci::app::App {
   const double kMargin = 20;
 
  private:
+  //TODO is this too implementation specific?
+  /**
+   * Counts up all the particles that exist in simulation and  updates particle_count_
+   * @return count of all particles in simulation
+   */
+  size_t CountParticles();
+
+  /**
+   * Rotates between particle types
+   */
+  void SwitchParticleType();
+
+  size_t particle_count_;
   ParticleType particle_type_;
   ci::Rectf gas_window_;
   std::string message_;
