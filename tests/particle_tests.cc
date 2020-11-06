@@ -2,6 +2,7 @@
 #include <catch2/catch.hpp>
 
 #include "engine/particle.h"
+
 using namespace ideal_gas;
 
 TEST_CASE("Constructor Properly Instantiates Particle") {

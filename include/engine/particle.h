@@ -1,5 +1,6 @@
 #ifndef IDEAL_GAS_JACOBALBUS_INCLUDE_PARTICLE_H_
 #define IDEAL_GAS_JACOBALBUS_INCLUDE_PARTICLE_H_
+
 #include <vector>
 #include "cinder/gl/gl.h"
 
@@ -9,7 +10,7 @@ enum ParticleType {
   kRed,
   kBlue,
   kGreen,
-  kDefault,   // made for testing purposes
+  kDefault,
 };
 
 class Particle {
@@ -43,13 +44,13 @@ class Particle {
    */
   double CalculateDistance(const Particle& other_particle) const;
 
-  const glm::vec2& GetVelocity() const;  // made for testing purposes
+  const glm::vec2& GetVelocity() const;
 
   const glm::vec2& GetPosition() const;
 
   size_t GetRadius() const;
 
-  double GetMass() const;   // made for testing purposes
+  double GetMass() const;   
 
   const ci::Color& GetColor() const;
 

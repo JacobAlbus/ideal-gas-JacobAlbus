@@ -36,9 +36,9 @@ get_filename_component(APP_PATH "${CMAKE_CURRENT_SOURCE_DIR}/" ABSOLUTE)
 
 include("${CINDER_PATH}/proj/cmake/modules/cinderMakeApp.cmake")
 
-list(APPEND ENGINE_SOURCE_FILES src/engine/particle.cpp src/engine/simulation.cpp)
+list(APPEND ENGINE_SOURCE_FILES src/engine/particle.cc src/engine/simulation.cc)
 list(APPEND GUI_SOURCE_FILES src/gui/ideal_gas_app.cc src/gui/simulation_ui.cc)
-list(APPEND TEST_FILES tests/particle_tests.cpp tests/sketchpad_tests.cpp)
+list(APPEND TEST_FILES tests/particle_tests.cc tests/sketchpad_tests.cc)
 
 ci_make_app(
         APP_NAME        ideal-gas-visualizer
@@ -50,7 +50,7 @@ ci_make_app(
 ci_make_app(
         APP_NAME        ideal-gas-tests
         CINDER_PATH     ${CINDER_PATH}
-        SOURCES         tests/test_main.cpp ${ENGINE_SOURCE_FILES} ${GUI_SOURCE_FILES} ${TEST_FILES}
+        SOURCES tests/test_main.cc ${ENGINE_SOURCE_FILES} ${GUI_SOURCE_FILES} ${TEST_FILES}
         INCLUDES        include
         LIBRARIES       catch2
 )

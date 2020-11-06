@@ -5,6 +5,7 @@
 #include <iostream>
 
 namespace ideal_gas {
+
 class Simulation {
  public:
   Simulation();
