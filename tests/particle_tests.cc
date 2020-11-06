@@ -181,6 +181,7 @@ TEST_CASE("IsParticlesInContact Works Correctly") {
     Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
 
     particle1.UpdateVelocity(particle2);
+    //TODO you said that I need to check values, but I already made sure calculations are correct
     REQUIRE_FALSE(particle1.GetVelocity() == velocity1);
   }
 
