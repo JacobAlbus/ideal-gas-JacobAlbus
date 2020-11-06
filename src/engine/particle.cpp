@@ -87,17 +87,11 @@ glm::vec2 Particle::CalculateUpdatedVelocity(
   return velocity_ - (position_diff * static_cast<float>(temp));
 }
 
-bool Particle::IsParticlesInContact(
-    const Particle& particle_in_contact) const {
+bool Particle::IsParticlesInContact(const Particle& particle_in_contact) const {
+  double touching_radius = radius_ + particle_in_contact.GetRadius();
 
-  if(GetPosition() != particle_in_contact.GetPosition()) {
-    double touching_radius = GetRadius() + particle_in_contact.GetRadius();
-    if(CalculateDistance(particle_in_contact) <= touching_radius) {
-      return true;
-    }
-  }
-
-  return false;
+  return position_ != particle_in_contact.GetPosition() &&
+         CalculateDistance(particle_in_contact) <= touching_radius;
 }
 
 bool Particle::IsParticlesMovingCloser(
