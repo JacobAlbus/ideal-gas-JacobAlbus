@@ -54,6 +54,7 @@ class Particle {
 
   const ci::Color& GetColor() const;
 
+  ParticleType GetType() const;
  private:
   /**
    * Checks to see if particle's are in contact with each other
@@ -83,6 +84,7 @@ class Particle {
   double mass_;
   size_t radius_;
   ci::Color particle_color_;
+  const ParticleType kParticleType;
 };
 
 } //namespace ideal_gas

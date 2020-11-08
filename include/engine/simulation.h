@@ -8,13 +8,12 @@
 namespace ideal_gas {
 
 //TODO change name
-typedef std::map<ParticleType, std::vector<Particle>> particle_map;
-typedef std::map<ParticleType, std::vector<size_t>> velocity_map;
+typedef std::map<ParticleType, std::vector<size_t>> speed_histograms_t;
 
 class Simulation {
  public:
   /**
-   * Instantiates the Simulation class with an empty map of particles
+   * Instantiates the Simulation class
    */
   Simulation();
 
@@ -24,44 +23,42 @@ class Simulation {
   void ManageParticles(ci::Rectf gas_window);
 
   /**
-   * Adds a particle to the map
-   * @param particle object to be added to map
+   * Adds a particle to the simulation
+   * @param particle object to be added to simulation
    */
-  void AddParticle(const Particle& particle, ParticleType particle_type);
+  void AddParticle(const Particle& particle);
 
   /**
-   * Calculates the speed of each particle for each particle type and
-   * bins them for a histogram
+   * Updates histogram bins for each particle type
    */
   void UpdateSpeedHistograms();
 
   /**
-   * Clears each vector in the particles map
+   * Clears all particles from simulation
    */
   void Clear();
 
-  const particle_map& GetParticles() const;
+  const std::vector<Particle>& GetParticles() const;
 
-  const velocity_map& GetSpeeds() const;
+  const speed_histograms_t& GetSpeedHistograms() const;
 
  private:
   /**
-   * Calculates the speed of each particle in passed vector
-   * @param vector of particles
+   * Calculates the speed of each particle
    * @return sorted vector of speeds
    */
-  std::vector<float> CalculateParticleSpeeds(const std::vector<Particle>& particles) const;
+  std::vector<float> CalculateParticleSpeeds() const;
 
   /**
-   *
-   * @param vector
-   * @return
+   * Calculates the range of particle speeds
+   * @param vector of speeds of each particle
+   * @return range of speeds
    */
-  float CalculateVectorRange(const std::vector<float>& speeds) const;
+  float CalculateParticleSpeedRange(const std::vector<float>& speeds) const;
 
-  const size_t kNumHistogramBins = 5;
-  particle_map particles_;
-  velocity_map particle_type_speeds_;
+  const size_t kNumHistogramBins;
+  std::vector<Particle> particles_;
+  speed_histograms_t speed_histograms_;
 };
 } // namespace ideal_gas
 

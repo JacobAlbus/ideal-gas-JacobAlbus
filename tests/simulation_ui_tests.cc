@@ -18,7 +18,7 @@ TEST_CASE("HandleParticleBrush Works Correctly") {
     simulation_ui.HandleParticleBrush(mouse_coords, gas_window,
                                       ParticleType::kRed, simulation);
 
-    REQUIRE(simulation.GetParticles().at(ParticleType::kRed).empty());
+    REQUIRE(simulation.GetParticles().empty());
   }
 
   SECTION("HandleParticleBrush draws particles if brush is inside of window") {
@@ -30,7 +30,7 @@ TEST_CASE("HandleParticleBrush Works Correctly") {
     simulation_ui.HandleParticleBrush(mouse_coords, gas_window,
                                       ParticleType::kRed, simulation);
 
-    std::vector<Particle> particles = simulation.GetParticles().at(ParticleType::kRed);
+    std::vector<Particle> particles = simulation.GetParticles();
     REQUIRE(particles.size() == 1);
     REQUIRE(particles[0].GetPosition() == mouse_coords);
     REQUIRE(particles[0].GetMass() == 1);

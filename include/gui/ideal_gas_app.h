@@ -62,7 +62,6 @@ class IdealGasApp : public ci::app::App {
    */
   void SwitchParticleType();
 
-  size_t particle_count_;
   ParticleType particle_type_;
   ci::Rectf gas_window_;
   std::string particle_count_message_;

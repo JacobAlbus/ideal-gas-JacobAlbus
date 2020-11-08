@@ -40,6 +40,11 @@ class SimulationUI {
   void RenderHistograms(const ci::Rectf& hist_window, const std::vector<size_t>& bin_counts) const;
 
   Simulation simulation_;
+
+  const float kWindowSize = 875;
+  const ci::Rectf kRedHistogramWindow;
+  const ci::Rectf kBlueHistogramWindow;
+  const ci::Rectf kGreenHistogramWindow;
 };
 
 }  // namespace visualizer

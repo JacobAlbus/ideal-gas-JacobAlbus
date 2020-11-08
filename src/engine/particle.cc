@@ -4,7 +4,10 @@ namespace ideal_gas {
 
 Particle::Particle(const glm::vec2& velocity,
                    const glm::vec2& position,
-                   ParticleType type) {
+                   ParticleType type) :
+                   velocity_(velocity),
+                   position_(position),
+                   kParticleType(type) {
 
   velocity_ = velocity;
   position_ = position;
@@ -16,12 +19,12 @@ Particle::Particle(const glm::vec2& velocity,
       particle_color_ = ci::Color(1, 0, 0);
       break;
     case ParticleType::kBlue:
-      mass_ = 3;
+      mass_ = 10;
       radius_ = 4;
       particle_color_ = ci::Color(0, 0, 1);
       break;
     case ParticleType::kGreen:
-      mass_ = 6;
+      mass_ = 40;
       radius_ = 6;
       particle_color_ = ci::Color(0, 1, 0);
       break;
@@ -122,6 +125,10 @@ const ci::Color& Particle::GetColor() const {
 
 double Particle::GetMass() const {
   return mass_;
+}
+
+ParticleType Particle::GetType() const {
+  return kParticleType;
 }
 
 } //namespace ideal_gas

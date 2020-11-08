@@ -7,7 +7,6 @@ namespace visualizer {
 IdealGasApp::IdealGasApp() : simulation_(),
                              simulation_ui_(),
                              particle_type_(ParticleType::kRed),
-                             particle_count_(0),
                              particle_count_message_("Particle Count: 0"),
                              particle_type_message_("Brush Particle Type: Red"),
                              gas_window_(ci::Rectf(kWindowSize / 4 - kGasWindowWidth,
@@ -20,7 +19,6 @@ IdealGasApp::IdealGasApp() : simulation_(),
 void IdealGasApp::update() {
   simulation_.ManageParticles(gas_window_);
   simulation_.UpdateSpeedHistograms();
-  particle_count_ = CountParticles();
 }
 
 void IdealGasApp::draw() {
@@ -40,6 +38,7 @@ void IdealGasApp::draw() {
   ci::gl::drawStrokedRect(gas_window_);
 
   ci::gl::color(1, 0, 0);
+  //TODO magic numbers
   ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / 1.25f - kHistogramWindowSize,
                                     kWindowSize / 6.0f - kHistogramWindowSize,
                                     kWindowSize / 1.25f + kHistogramWindowSize,
@@ -59,7 +58,8 @@ void IdealGasApp::draw() {
 }
 
 void IdealGasApp::mouseDown(ci::app::MouseEvent event) {
-  particle_count_message_ = "Particle Count: " + std::to_string(particle_count_);
+  size_t particle_count = simulation_.GetParticles().size();
+  particle_count_message_ = "Particle Count: " + std::to_string(particle_count);
 
   simulation_ui_.HandleParticleBrush(event.getPos(), gas_window_,
                                      particle_type_, simulation_);
@@ -73,7 +73,7 @@ void IdealGasApp::keyDown(ci::app::KeyEvent event) {
   switch (event.getCode()) {
     case ci::app::KeyEvent::KEY_DELETE: {
       simulation_.Clear();
-      particle_count_message_ = "Particle Count: " + std::to_string(particle_count_);
+      particle_count_message_ = "Particle Count: 0";
       break;
     }
     case ci::app::KeyEvent::KEY_ESCAPE: {
@@ -86,7 +86,7 @@ void IdealGasApp::keyDown(ci::app::KeyEvent event) {
   }
 }
 
-void IdealGasApp::SwitchParticleType(){
+void IdealGasApp::SwitchParticleType() {
   //TODO make it not so "hard-coded"
   switch(particle_type_){
     case ParticleType::kRed:
@@ -105,14 +105,7 @@ void IdealGasApp::SwitchParticleType(){
 }
 
 size_t IdealGasApp::CountParticles() {
-  size_t particle_count = 0;
-  const particle_map& particles = simulation_.GetParticles();
-
-  for(const auto& map_pair : particles){
-    particle_count += particles.at(map_pair.first).size();
-  }
-
-  return particle_count;
+  return simulation_.GetParticles().size();
 }
 
 }  // namespace visualizer
