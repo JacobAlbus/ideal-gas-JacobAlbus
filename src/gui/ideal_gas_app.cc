@@ -39,23 +39,23 @@ void IdealGasApp::draw() {
   ci::gl::color(255, 255, 255);
   ci::gl::drawStrokedRect(gas_window_);
 
-  ci::gl::color(255, 255, 255);
-  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / (3.0f/4.0f) - kGasWindowWidth,
-                                    kWindowSize / 6 - kGasWindowHeight,
-                                    kWindowSize / (3.0f/4.0f) + kGasWindowWidth,
-                                    kWindowSize / 6 + kGasWindowHeight));
+  ci::gl::color(1, 0, 0);
+  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / 1.25f - kHistogramWindowSize,
+                                    kWindowSize / 6.0f - kHistogramWindowSize,
+                                    kWindowSize / 1.25f + kHistogramWindowSize,
+                                    kWindowSize / 6.0f + kHistogramWindowSize));
 
-  ci::gl::color(255, 255, 255);
-  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / (3.0f/4.0f) - kGasWindowWidth,
-                                    kWindowSize / 2 - kGasWindowHeight,
-                                    kWindowSize / (3.0f/4.0f) + kGasWindowWidth,
-                                    kWindowSize / 2 + kGasWindowHeight));
+  ci::gl::color(0, 0, 1);
+  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / 1.25f - kHistogramWindowSize,
+                                    kWindowSize / 2.1f - kHistogramWindowSize,
+                                    kWindowSize / 1.25f + kHistogramWindowSize,
+                                    kWindowSize / 2.1f + kHistogramWindowSize));
 
-  ci::gl::color(255, 255, 255);
-  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / (3.0f/4.0f) - kGasWindowWidth,
-                                    kWindowSize / 2 - kGasWindowHeight,
-                                    kWindowSize / (3.0f/4.0f) + kGasWindowWidth,
-                                    kWindowSize / 2 + kGasWindowHeight));
+  ci::gl::color(0, 1, 0);
+  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / 1.25f - kHistogramWindowSize,
+                                    kWindowSize / 1.25f - kHistogramWindowSize,
+                                    kWindowSize / 1.25f + kHistogramWindowSize,
+                                    kWindowSize / 1.25f + kHistogramWindowSize));
 }
 
 void IdealGasApp::mouseDown(ci::app::MouseEvent event) {
