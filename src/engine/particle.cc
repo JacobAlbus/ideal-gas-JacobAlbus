@@ -76,19 +76,19 @@ void Particle::UpdatePosition(ci::Rectf gas_box) {
 glm::vec2 Particle::CalculateUpdatedVelocity(
     const Particle& particle_in_contact) {
 
-  double mass_coefficient =
-      2 * (particle_in_contact.mass_ / (particle_in_contact.mass_ + mass_));
+  float mass_coefficient =
+      2.0 * (particle_in_contact.mass_ / (particle_in_contact.mass_ + mass_));
   glm::vec2 velocity_diff = velocity_ - particle_in_contact.velocity_;
   glm::vec2 position_diff = position_ - particle_in_contact.position_;
 
-  double velocity_position_product = glm::dot(velocity_diff, position_diff);
-  double particle_distance = glm::pow(CalculateDistance(particle_in_contact), 2);
+  float velocity_position_product = glm::dot(velocity_diff, position_diff);
+  float particle_distance = glm::pow(CalculateDistance(particle_in_contact), 2);
 
-//TODO change name
-  double temp =
+  glm::vec2 velocity_change =
+      position_diff *
       (mass_coefficient * velocity_position_product) / particle_distance;
 
-  return velocity_ - (position_diff * static_cast<float>(temp));
+  return velocity_ - velocity_change;
 }
 
 bool Particle::IsParticlesInContact(const Particle& particle_in_contact) const {
