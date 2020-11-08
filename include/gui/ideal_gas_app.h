@@ -50,9 +50,8 @@ class IdealGasApp : public ci::app::App {
   const double kMargin = 20;
 
  private:
-  //TODO is this too implementation specific?
   /**
-   * Counts up all the particles that exist in simulation and  updates particle_count_
+   * Counts up all the particles that exist in simulation
    * @return count of all particles in simulation
    */
   size_t CountParticles();

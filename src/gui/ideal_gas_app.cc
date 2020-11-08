@@ -4,7 +4,8 @@ namespace ideal_gas {
 
 namespace visualizer {
 
-IdealGasApp::IdealGasApp() : simulation_ui_(),
+IdealGasApp::IdealGasApp() : simulation_(),
+                             simulation_ui_(),
                              particle_type_(ParticleType::kRed),
                              particle_count_(0),
                              particle_count_message_("Particle Count: 0"),
@@ -14,12 +15,11 @@ IdealGasApp::IdealGasApp() : simulation_ui_(),
                                                    kWindowSize / 4 + kGasWindowWidth,
                                                    kWindowSize / 2 + kGasWindowHeight)) {
   ci::app::setWindowSize((int) kWindowSize, (int) kWindowSize);
-  simulation_ = Simulation();
 }
 
-//TODO create a simulation class to handle particle interactions and store particles
 void IdealGasApp::update() {
   simulation_.ManageParticles(gas_window_);
+  simulation_.UpdateSpeedHistograms();
   particle_count_ = CountParticles();
 }
 
@@ -38,6 +38,24 @@ void IdealGasApp::draw() {
 
   ci::gl::color(255, 255, 255);
   ci::gl::drawStrokedRect(gas_window_);
+
+  ci::gl::color(255, 255, 255);
+  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / (3.0f/4.0f) - kGasWindowWidth,
+                                    kWindowSize / 6 - kGasWindowHeight,
+                                    kWindowSize / (3.0f/4.0f) + kGasWindowWidth,
+                                    kWindowSize / 6 + kGasWindowHeight));
+
+  ci::gl::color(255, 255, 255);
+  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / (3.0f/4.0f) - kGasWindowWidth,
+                                    kWindowSize / 2 - kGasWindowHeight,
+                                    kWindowSize / (3.0f/4.0f) + kGasWindowWidth,
+                                    kWindowSize / 2 + kGasWindowHeight));
+
+  ci::gl::color(255, 255, 255);
+  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / (3.0f/4.0f) - kGasWindowWidth,
+                                    kWindowSize / 2 - kGasWindowHeight,
+                                    kWindowSize / (3.0f/4.0f) + kGasWindowWidth,
+                                    kWindowSize / 2 + kGasWindowHeight));
 }
 
 void IdealGasApp::mouseDown(ci::app::MouseEvent event) {

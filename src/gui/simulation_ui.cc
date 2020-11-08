@@ -7,9 +7,7 @@ namespace visualizer {
 
 using glm::vec2;
 
-SimulationUI::SimulationUI() {
-  simulation_ = Simulation();
-}
+SimulationUI::SimulationUI() {}
 
 void SimulationUI::Draw(const Simulation& simulation) const {
   const particle_map& particles = simulation.GetParticles();

@@ -91,8 +91,10 @@ glm::vec2 Particle::CalculateUpdatedVelocity(
 bool Particle::IsParticlesInContact(const Particle& particle_in_contact) const {
   double touching_radius = radius_ + particle_in_contact.GetRadius();
 
+  double distance = CalculateDistance(particle_in_contact);
+
   return position_ != particle_in_contact.GetPosition() &&
-         CalculateDistance(particle_in_contact) <= touching_radius;
+         distance <= touching_radius;
 }
 
 bool Particle::IsParticlesMovingCloser(

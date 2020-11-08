@@ -9,6 +9,7 @@ namespace ideal_gas {
 
 //TODO change name
 typedef std::map<ParticleType, std::vector<Particle>> particle_map;
+typedef std::map<ParticleType, std::vector<size_t>> velocity_map;
 
 class Simulation {
  public:
@@ -29,6 +30,12 @@ class Simulation {
   void AddParticle(const Particle& particle, ParticleType particle_type);
 
   /**
+   * Calculates the speed of each particle for each particle type and
+   * bins them for a histogram
+   */
+  void UpdateSpeedHistograms();
+
+  /**
    * Clears each vector in the particles map
    */
   void Clear();
@@ -36,7 +43,23 @@ class Simulation {
   const particle_map& GetParticles() const;
 
  private:
+  /**
+   * Calculates the speed of each particle in passed vector
+   * @param vector of particles
+   * @return sorted vector of speeds
+   */
+  std::vector<float> CalculateParticleSpeeds(const std::vector<Particle>& particles) const;
+
+  /**
+   *
+   * @param vector
+   * @return
+   */
+  float CalculateVectorRange(const std::vector<float>& speeds) const;
+
+  const size_t kNumHistogramBins = 5;
   particle_map particles_;
+  velocity_map particle_type_speeds_;
 };
 } // namespace ideal_gas
 

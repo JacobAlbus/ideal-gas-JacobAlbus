@@ -174,11 +174,11 @@ TEST_CASE("IsParticlesInContact Works Correctly") {
   SECTION("Allows Velocities to be updated") {
     glm::vec2 position1(5.0, 6.0);
     glm::vec2 velocity1(0.5, -1.0);
-    Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
+    Particle particle1 = Particle(velocity1, position1, ParticleType::kGreen);
 
     glm::vec2 position2(6.0, 7.0);
     glm::vec2 velocity2(1.0, -2.0);
-    Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
+    Particle particle2 = Particle(velocity2, position2, ParticleType::kGreen);
 
     particle1.UpdateVelocity(particle2);
     //TODO you said that I need to check values, but I already made sure calculations are correct
