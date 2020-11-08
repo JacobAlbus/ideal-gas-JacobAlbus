@@ -17,6 +17,9 @@ Simulation::Simulation() {
   particles_.insert(particle_pair);
 
   std::vector<size_t> empty_speed;
+  for(size_t i = 0; i < kNumHistogramBins; i++) {
+    empty_speed.push_back(0);
+  }
   std::pair<ParticleType, std::vector<size_t>> speed_pair;
 
   speed_pair = std::make_pair(ParticleType::kRed, empty_speed);
@@ -52,10 +55,10 @@ void Simulation::UpdateSpeedHistograms() {
 
     float hist_interval = CalculateVectorRange(speeds);
     for(size_t index = 0; index < kNumHistogramBins; index++) {
-      particle_type_speeds_.at(particle_type).push_back(0);
+      particle_type_speeds_.at(particle_type)[index] = 0;
 
       for(float speed : speeds) {
-        if(speed >= (hist_interval * index) && speed < (hist_interval * (index + 1))) {
+        if(speed >= (hist_interval * index) && speed <= (hist_interval * (index + 1))) {
           particle_type_speeds_.at(particle_type)[index]++;
         }
       }
@@ -105,5 +108,8 @@ const particle_map& Simulation::GetParticles() const {
   return particles_;
 }
 
+const velocity_map& Simulation::GetSpeeds() const{
+  return particle_type_speeds_;
+}
 
 } // namespace ideal_gas

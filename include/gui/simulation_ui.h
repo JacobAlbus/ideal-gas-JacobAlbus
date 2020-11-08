@@ -37,6 +37,8 @@ class SimulationUI {
   bool IsBrushInsideWindow(double x_coord, double y_coord,
                            const ci::Rectf& gas_window) const;
 
+  void RenderHistograms(const ci::Rectf& hist_window, const std::vector<size_t>& bin_counts) const;
+
   Simulation simulation_;
 };
 

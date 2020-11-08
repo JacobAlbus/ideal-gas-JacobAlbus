@@ -42,6 +42,8 @@ class Simulation {
 
   const particle_map& GetParticles() const;
 
+  const velocity_map& GetSpeeds() const;
+
  private:
   /**
    * Calculates the speed of each particle in passed vector
