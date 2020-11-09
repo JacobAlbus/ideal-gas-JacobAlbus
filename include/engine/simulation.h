@@ -2,7 +2,6 @@
 #define IDEAL_GAS_SRC_ENGINE_SIMULATION_H_
 
 #include "engine/particle.h"
-#include <iostream>
 #include <map>
 
 namespace ideal_gas {
@@ -14,12 +13,12 @@ class Simulation {
   /**
    * Instantiates the Simulation class
    */
-  Simulation(size_t num_histogram_bins);
+  explicit Simulation(size_t num_histogram_bins);
 
   /**
    * Updates the position and velocity of each particle
    */
-  void ManageParticles(ci::Rectf gas_window);
+  void UpdateParticles(ci::Rectf gas_window);
 
   /**
    * Adds a particle to the simulation

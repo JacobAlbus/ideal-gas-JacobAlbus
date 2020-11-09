@@ -17,7 +17,7 @@ IdealGasApp::IdealGasApp() : simulation_(kNumHistogramBins),
 }
 
 void IdealGasApp::update() {
-  simulation_.ManageParticles(gas_window_);
+  simulation_.UpdateParticles(gas_window_);
   simulation_.UpdateSpeedHistograms();
 }
 
@@ -102,10 +102,6 @@ void IdealGasApp::SwitchParticleType() {
       particle_type_message_ = "Brush Particle Type: Red";
       break;
   }
-}
-
-size_t IdealGasApp::CountParticles() {
-  return simulation_.GetParticles().size();
 }
 
 }  // namespace visualizer

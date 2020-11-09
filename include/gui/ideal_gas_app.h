@@ -53,12 +53,6 @@ class IdealGasApp : public ci::app::App {
 
  private:
   /**
-   * Counts up all the particles that exist in simulation
-   * @return count of all particles in simulation
-   */
-  size_t CountParticles();
-
-  /**
    * Rotates between particle types
    */
   void SwitchParticleType();

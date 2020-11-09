@@ -1,5 +1,4 @@
 #include "engine/simulation.h"
-#include <math.h>
 #include <algorithm>
 
 namespace ideal_gas {
@@ -23,11 +22,11 @@ Simulation::Simulation(size_t num_histogram_bins) :
   speed_histograms_.insert(histogram_pair);
 }
 
-void Simulation::ManageParticles(ci::Rectf gas_window) {
+void Simulation::UpdateParticles(ci::Rectf gas_window) {
   for(Particle& particle : particles_) {
     particle.UpdatePosition(gas_window);
 
-    for(auto& particle_in_contact : particles_) {
+    for(Particle& particle_in_contact : particles_) {
       particle.UpdateVelocity(particle_in_contact);
     }
   }
