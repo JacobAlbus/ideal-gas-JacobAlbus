@@ -4,7 +4,7 @@ namespace ideal_gas {
 
 namespace visualizer {
 
-IdealGasApp::IdealGasApp() : simulation_(),
+IdealGasApp::IdealGasApp() : simulation_(kNumHistogramBins),
                              simulation_ui_(),
                              particle_type_(ParticleType::kRed),
                              particle_count_message_("Particle Count: 0"),

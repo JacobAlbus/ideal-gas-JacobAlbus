@@ -44,13 +44,15 @@ class Particle {
    */
   double CalculateDistance(const Particle& other_particle) const;
 
+  bool operator==(const Particle& other_particle) const;
+
   const glm::vec2& GetVelocity() const;
 
   const glm::vec2& GetPosition() const;
 
-  size_t GetRadius() const;
+  float GetRadius() const;
 
-  double GetMass() const;
+  float GetMass() const;
 
   const ci::Color& GetColor() const;
 
@@ -81,8 +83,8 @@ class Particle {
 
   glm::vec2 velocity_;
   glm::vec2 position_;
-  double mass_;
-  size_t radius_;
+  float mass_;
+  float radius_;
   ci::Color particle_color_;
   const ParticleType kParticleType;
 };

@@ -4,16 +4,17 @@
 
 namespace ideal_gas {
 
-//TODO implement proper enum iterator
-Simulation::Simulation() : kNumHistogramBins(8) {
+Simulation::Simulation(size_t num_histogram_bins) :
+                       kNumHistogramBins(num_histogram_bins) {
+
+  //instantiates vector representing histogram bins for each particle type
   std::vector<size_t> empty_speed;
-  empty_speed.reserve(kNumHistogramBins);
   for(size_t i = 0; i < kNumHistogramBins; i++) {
     empty_speed.push_back(0);
   }
 
   std::pair<ParticleType, std::vector<size_t>> histogram_pair;
-
+  //TODO implement proper enum iterator
   histogram_pair = std::make_pair(ParticleType::kRed, empty_speed);
   speed_histograms_.insert(histogram_pair);
   histogram_pair = std::make_pair(ParticleType::kBlue, empty_speed);

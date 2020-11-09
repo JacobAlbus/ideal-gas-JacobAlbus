@@ -7,7 +7,6 @@
 
 namespace ideal_gas {
 
-//TODO change name
 typedef std::map<ParticleType, std::vector<size_t>> speed_histograms_t;
 
 class Simulation {
@@ -15,7 +14,7 @@ class Simulation {
   /**
    * Instantiates the Simulation class
    */
-  Simulation();
+  Simulation(size_t num_histogram_bins);
 
   /**
    * Updates the position and velocity of each particle

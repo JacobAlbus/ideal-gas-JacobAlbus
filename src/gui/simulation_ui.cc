@@ -1,6 +1,5 @@
 #include <gui/simulation_ui.h>
 #include <cinder/Rand.h>
-#include "gui/ideal_gas_app.h"
 
 namespace ideal_gas {
 
@@ -8,6 +7,7 @@ namespace visualizer {
 
 using glm::vec2;
 
+//TODO fix magic
 SimulationUI::SimulationUI() : kRedHistogramWindow(kWindowSize / 1.38f,
                                                    kWindowSize / 3.97f,
                                                    kWindowSize / 1.38f,
@@ -23,7 +23,7 @@ SimulationUI::SimulationUI() : kRedHistogramWindow(kWindowSize / 1.38f,
 
 void SimulationUI::Draw(const Simulation& simulation) const {
   const std::vector<Particle>& particles = simulation.GetParticles();
-  //TODO change name
+
   for(const Particle& particle : particles) {
     ci::gl::color(particle.GetColor());
     const auto kRadius = static_cast<float>(particle.GetRadius());
@@ -46,8 +46,8 @@ void SimulationUI::HandleParticleBrush(const vec2& brush_screen_coords,
                                        const ci::Rectf& gas_window,
                                        ParticleType particle_type,
                                        Simulation& simulation) {
-  double x_coord = brush_screen_coords.x;
-  double y_coord = brush_screen_coords.y;
+  float x_coord = brush_screen_coords.x;
+  float y_coord = brush_screen_coords.y;
 
   if(IsBrushInsideWindow(x_coord, y_coord, gas_window)) {
     glm::vec2 position(x_coord, y_coord);
@@ -69,6 +69,7 @@ bool SimulationUI::IsBrushInsideWindow(double x_coord, double y_coord,
          y_coord <= gas_window.getY2();
 }
 
+//TODO fix magic
 void SimulationUI::RenderHistograms(const ci::Rectf& hist_window,
                                     const std::vector<size_t>& bin_counts) const {
   for(size_t index = 0; index < bin_counts.size(); index++) {

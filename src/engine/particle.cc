@@ -14,23 +14,23 @@ Particle::Particle(const glm::vec2& velocity,
   
   switch(type) {
     case ParticleType::kRed:
-      mass_ = 1;
-      radius_ = 2;
+      mass_ = 1.0f;
+      radius_ = 2.0f;
       particle_color_ = ci::Color(1, 0, 0);
       break;
     case ParticleType::kBlue:
-      mass_ = 10;
-      radius_ = 4;
+      mass_ = 10.0f;
+      radius_ = 4.0f;
       particle_color_ = ci::Color(0, 0, 1);
       break;
     case ParticleType::kGreen:
-      mass_ = 40;
-      radius_ = 6;
+      mass_ = 40.0f;
+      radius_ = 6.0f;
       particle_color_ = ci::Color(0, 1, 0);
       break;
     default:
-      mass_ = 1;
-      radius_ = 2;
+      mass_ = 1.0f;
+      radius_ = 2.0f;
       particle_color_ = ci::Color(1, 0, 0);
   }
 }
@@ -57,32 +57,39 @@ double Particle::CalculateDistance(const Particle& other_particle) const {
 void Particle::UpdatePosition(ci::Rectf gas_box) {
   // checks to see if particle is touching walls
   // and changes velocity in opposite direction
-  if(position_[0] <= (gas_box.getX1() + radius_) && velocity_[0] < 0) {
-    velocity_[0] *= -1;
-  } else if(position_[0] >= (gas_box.getX2() - radius_) && velocity_[0] > 0) {
-    velocity_[0] *= -1;
+  if(position_.x <= (gas_box.getX1() + radius_) && velocity_.x < 0) {
+    velocity_.x *= -1;
+  } else if(position_.x >= (gas_box.getX2() - radius_) && velocity_.x > 0) {
+    velocity_.x *= -1;
   }
 
-  if(position_[1] <= (gas_box.getY1() + radius_) && velocity_[1] < 0) {
-    velocity_[1] *= -1;
-  } else if(position_[1] >= (gas_box.getY2() - radius_) && velocity_[1] > 0) {
-    velocity_[1] *= -1;
+  if(position_.y <= (gas_box.getY1() + radius_) && velocity_.y < 0) {
+    velocity_.y *= -1;
+  } else if(position_.y >= (gas_box.getY2() - radius_) && velocity_.y > 0) {
+    velocity_.y *= -1;
   }
 
   position_ += velocity_;
 }
 
+bool Particle::operator==(const Particle &other_particle) const {
+  return mass_ == other_particle.mass_ &&
+         radius_ == other_particle.radius_ &&
+         velocity_ == other_particle.velocity_ &&
+         position_ == other_particle.position_ &&
+         kParticleType == other_particle.kParticleType;
+}
 
 glm::vec2 Particle::CalculateUpdatedVelocity(
     const Particle& particle_in_contact) {
 
   float mass_coefficient =
-      2.0 * (particle_in_contact.mass_ / (particle_in_contact.mass_ + mass_));
+      2.0f * (particle_in_contact.mass_ / (particle_in_contact.mass_ + mass_));
   glm::vec2 velocity_diff = velocity_ - particle_in_contact.velocity_;
   glm::vec2 position_diff = position_ - particle_in_contact.position_;
 
   float velocity_position_product = glm::dot(velocity_diff, position_diff);
-  float particle_distance = glm::pow(CalculateDistance(particle_in_contact), 2);
+  auto particle_distance = static_cast<float>(glm::pow(CalculateDistance(particle_in_contact), 2));
 
   glm::vec2 velocity_change =
       position_diff *
@@ -115,7 +122,7 @@ const glm::vec2& Particle::GetPosition() const {
   return position_;
 }
 
-size_t Particle::GetRadius() const {
+float Particle::GetRadius() const {
   return radius_;
 }
 
@@ -123,7 +130,7 @@ const ci::Color& Particle::GetColor() const {
   return particle_color_;
 }
 
-double Particle::GetMass() const {
+float Particle::GetMass() const {
   return mass_;
 }
 

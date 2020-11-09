@@ -49,6 +49,7 @@ class IdealGasApp : public ci::app::App {
   const float kGasWindowHeight = 300;
   const float kHistogramWindowSize = 75;
   const double kMargin = 20;
+  const size_t kNumHistogramBins = 8;
 
  private:
   /**
