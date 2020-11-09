@@ -96,10 +96,10 @@ TEST_CASE("Update Particle Properly Updates Velocity") {
     particle1.UpdateVelocity(particle2);
 
     REQUIRE(particle1.GetVelocity()[0] == Approx(1.86364f));
-    REQUIRE(particle1.GetVelocity()[1] == Approx(-1.375));
+    REQUIRE(particle1.GetVelocity()[1] == Approx(-1.45455));
 
-    REQUIRE(particle2.GetVelocity()[0] == Approx(0.625));
-    REQUIRE(particle2.GetVelocity()[1] == Approx(-1.875));
+    REQUIRE(particle2.GetVelocity()[0] == Approx(0.86364f));
+    REQUIRE(particle2.GetVelocity()[1] == Approx(-1.95455));
   }
 }
 
