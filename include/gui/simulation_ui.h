@@ -8,6 +8,9 @@ namespace visualizer {
 
 class SimulationUI {
  public:
+  /**
+   * Instantiates UI elements and Simulation Object
+   */
   SimulationUI();
 
   /**

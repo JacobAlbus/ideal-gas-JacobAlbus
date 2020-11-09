@@ -79,9 +79,9 @@ void SimulationUI::RenderHistograms(const ci::Rectf& hist_window,
   for(size_t index = 0; index < bin_counts.size(); index++) {
     //TODO fix magic
     auto bin_height = static_cast<float>(bin_counts[index] * 2);
-    auto bin_spacing = 8.0f + static_cast<float>(index * 18);
+    float bin_spacing = 8.0f + static_cast<float>(index * 18);
 
-    ci::gl::drawSolidRect(ci::Rectf(hist_window.getX1() - bin_spacing,
+    ci::gl::drawSolidRect(ci::Rectf(hist_window.getX1() - 8.0f + static_cast<float>(index * 18),
                                     hist_window.getY1() - bin_height,
                                     hist_window.getX2() + bin_spacing,
                                     hist_window.getY2()));

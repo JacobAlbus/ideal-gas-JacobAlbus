@@ -14,6 +14,9 @@ namespace visualizer {
  */
 class IdealGasApp : public ci::app::App {
  public:
+  /**
+   * Instantiates App
+   */
   IdealGasApp();
 
   /**

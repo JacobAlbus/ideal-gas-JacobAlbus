@@ -5,7 +5,6 @@ namespace ideal_gas {
 
 Simulation::Simulation(size_t num_histogram_bins) :
                        kNumHistogramBins(num_histogram_bins) {
-
   //instantiates vector representing histogram bins for each particle type
   std::vector<size_t> empty_speed;
   for(size_t i = 0; i < kNumHistogramBins; i++) {
@@ -46,10 +45,10 @@ void Simulation::UpdateSpeedHistograms() {
         float speed = speeds[particle_index];
         const Particle& particle = particles_[particle_index];
 
-        if(particle.GetType() == particle_type){
-          float lower = hist_interval * bin_index;
-          float upper = hist_interval * (bin_index + 1);
-          if(speed >= lower && speed <= upper) {
+        if(particle.GetType() == particle_type) {
+          float lower_bound = hist_interval * bin_index;
+          auto upper_bound = hist_interval * static_cast<float>(bin_index + 1);
+          if(speed >= lower_bound && speed <= upper_bound) {
             speed_histograms_.at(particle_type)[bin_index]++;
           }
         }
@@ -74,7 +73,7 @@ float Simulation::CalculateParticleSpeedRange(const std::vector<float>& speeds) 
   float min = std::numeric_limits<float>::max();
   float max = std::numeric_limits<float>::min();
 
-  for(float speed : speeds){
+  for(float speed : speeds) {
     if(speed < min) {
       min = speed;
     } else if(speed > max) {

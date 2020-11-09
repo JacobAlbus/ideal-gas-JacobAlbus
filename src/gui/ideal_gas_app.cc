@@ -87,7 +87,7 @@ void IdealGasApp::keyDown(ci::app::KeyEvent event) {
 
 void IdealGasApp::SwitchParticleType() {
   //TODO make it not so "hard-coded"
-  switch(particle_type_){
+  switch(particle_type_) {
     case ParticleType::kRed:
       particle_type_ = ParticleType::kBlue;
       particle_type_message_ = "Brush Particle Type: Blue";
