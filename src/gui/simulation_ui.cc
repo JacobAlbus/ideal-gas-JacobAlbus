@@ -5,8 +5,6 @@ namespace ideal_gas {
 
 namespace visualizer {
 
-using glm::vec2;
-
 //TODO fix magic
 //TODO why can't I instantiate with kNumHistBins
 SimulationUI::SimulationUI() : kNumHistogramBins(8), simulation_(8),
@@ -21,7 +19,7 @@ SimulationUI::SimulationUI() : kNumHistogramBins(8), simulation_(8),
                                kGreenHistogramWindow(kWindowSize / 1.38f,
                                                      kWindowSize / 1.13f,
                                                      kWindowSize / 1.38f,
-                                                     kWindowSize / 1.13f){}
+                                                     kWindowSize / 1.13f) {}
 
 void SimulationUI::UpdateSimulation(const ci::Rectf& gas_window) {
   simulation_.UpdateParticles(gas_window);
@@ -49,7 +47,7 @@ void SimulationUI::RenderDynamicObjects() const {
   RenderHistograms(kGreenHistogramWindow, speed_histograms.at(ParticleType::kGreen));
 }
 
-void SimulationUI::HandleParticleBrush(const vec2& brush_screen_coords,
+void SimulationUI::HandleParticleBrush(const glm::vec2& brush_screen_coords,
                                        const ci::Rectf& gas_window,
                                        ParticleType particle_type) {
   float x_coord = brush_screen_coords.x;
@@ -68,21 +66,24 @@ void SimulationUI::HandleParticleBrush(const vec2& brush_screen_coords,
 }
 
 bool SimulationUI::IsBrushInsideWindow(double x_coord, double y_coord,
-                                    const ci::Rectf &gas_window) const {
+                                       const ci::Rectf &gas_window) const {
   return x_coord >= gas_window.getX1() &&
          x_coord <= gas_window.getX2() &&
          y_coord >= gas_window.getY1() &&
          y_coord <= gas_window.getY2();
 }
 
-//TODO fix magic
 void SimulationUI::RenderHistograms(const ci::Rectf& hist_window,
                                     const std::vector<size_t>& bin_counts) const {
+
   for(size_t index = 0; index < bin_counts.size(); index++) {
-    size_t bin_count = bin_counts[index];
-    ci::gl::drawSolidRect(ci::Rectf(hist_window.getX1() - 8.0f + static_cast<float>(index * 18),
-                                    hist_window.getY1() - static_cast<float>(bin_count * 2),
-                                    hist_window.getX2() + 8.0f + static_cast<float>(index * 18),
+    //TODO fix magic
+    auto bin_height = static_cast<float>(bin_counts[index] * 2);
+    auto bin_spacing = 8.0f + static_cast<float>(index * 18);
+
+    ci::gl::drawSolidRect(ci::Rectf(hist_window.getX1() - bin_spacing,
+                                    hist_window.getY1() - bin_height,
+                                    hist_window.getX2() + bin_spacing,
                                     hist_window.getY2()));
   }
 }
