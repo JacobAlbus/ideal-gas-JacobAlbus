@@ -17,7 +17,7 @@ class SimulationUI {
   void UpdateSimulation(const ci::Rectf& gas_window);
 
   /**
-   * Displays the current state of the sketchpad in the Cinder application.
+   * Renders Particles and Histograms
    */
   void RenderDynamicObjects() const;
 

@@ -14,11 +14,10 @@ TEST_CASE("HandleParticleBrush Works Correctly") {
     glm::vec2 mouse_coords(300, 400);
 
     SimulationUI simulation_ui = SimulationUI();
-    Simulation simulation = Simulation(8);
     simulation_ui.HandleParticleBrush(mouse_coords, gas_window,
-                                      ParticleType::kRed, simulation);
+                                      ParticleType::kRed);
 
-    REQUIRE(simulation.GetParticles().empty());
+    REQUIRE(simulation_ui.GetSimulationParticles().empty());
   }
 
   SECTION("HandleParticleBrush draws particles if brush is inside of window") {
@@ -26,11 +25,10 @@ TEST_CASE("HandleParticleBrush Works Correctly") {
     glm::vec2 mouse_coords(100, 200);
 
     SimulationUI simulation_ui = SimulationUI();
-    Simulation simulation = Simulation(8);
     simulation_ui.HandleParticleBrush(mouse_coords, gas_window,
-                                      ParticleType::kRed, simulation);
+                                      ParticleType::kRed);
 
-    std::vector<Particle> particles = simulation.GetParticles();
+    std::vector<Particle> particles = simulation_ui.GetSimulationParticles();
     REQUIRE(particles.size() == 1);
     REQUIRE(particles[0].GetPosition() == mouse_coords);
     REQUIRE(particles[0].GetVelocity().x == Approx(1.27408f));
@@ -38,6 +36,5 @@ TEST_CASE("HandleParticleBrush Works Correctly") {
     REQUIRE(particles[0].GetMass() == Approx(1.0f));
     REQUIRE(particles[0].GetRadius() == Approx(2.0f));
     REQUIRE(particles[0].GetColor() == ci::Color(1, 0, 0));
-  }
-
+  }f
 }

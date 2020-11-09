@@ -28,7 +28,6 @@ void SimulationUI::UpdateSimulation(const ci::Rectf& gas_window) {
   simulation_.UpdateSpeedHistograms();
 }
 
-//TODO is render a good name
 void SimulationUI::RenderDynamicObjects() const {
   const std::vector<Particle>& particles = simulation_.GetParticles();
 
