@@ -23,7 +23,7 @@ TEST_CASE("Constructor Properly Instantiates Particle") {
     REQUIRE(red_particle.GetPosition() == glm::vec2(5.0, 6.0));
     REQUIRE(red_particle.GetVelocity() == glm::vec2(0.5, -1.0));
     REQUIRE(red_particle.GetRadius() == 4);
-    REQUIRE(red_particle.GetMass() == 3);
+    REQUIRE(red_particle.GetMass() == 10.0f);
     REQUIRE(red_particle.GetColor() == ci::Color(0, 0, 1));
   }
 
@@ -32,7 +32,7 @@ TEST_CASE("Constructor Properly Instantiates Particle") {
     REQUIRE(red_particle.GetPosition() == glm::vec2(5.0, 6.0));
     REQUIRE(red_particle.GetVelocity() == glm::vec2(0.5, -1.0));
     REQUIRE(red_particle.GetRadius() == 6);
-    REQUIRE(red_particle.GetMass() == 6);
+    REQUIRE(red_particle.GetMass() == 40.0f);
     REQUIRE(red_particle.GetColor() == ci::Color(0, 1, 0));
   }
 
@@ -95,7 +95,7 @@ TEST_CASE("Update Particle Properly Updates Velocity") {
 
     particle1.UpdateVelocity(particle2);
 
-    REQUIRE(particle1.GetVelocity()[0] == Approx(1.625));
+    REQUIRE(particle1.GetVelocity()[0] == Approx(1.86364f));
     REQUIRE(particle1.GetVelocity()[1] == Approx(-1.375));
 
     REQUIRE(particle2.GetVelocity()[0] == Approx(0.625));
