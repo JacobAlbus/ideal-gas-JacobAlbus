@@ -4,9 +4,9 @@
 #include "engine/simulation.h"
 
 using namespace ideal_gas;
+const size_t kNumHistogramBins = 8;
 
 TEST_CASE("Histogram Constructor") {
-  const size_t kNumHistogramBins = 8;
   Simulation simulation = Simulation(kNumHistogramBins);
   speed_histograms_t histograms = simulation.GetSpeedHistograms();
 
@@ -26,7 +26,6 @@ TEST_CASE("Histogram Constructor") {
 }
 
 TEST_CASE("Add Particles") {
-  const size_t kNumHistogramBins = 8;
   Simulation simulation = Simulation(kNumHistogramBins);
 
   SECTION("Red Particles Are Added Correctly") {
@@ -97,7 +96,6 @@ TEST_CASE("Add Particles") {
 }
 
 TEST_CASE("Clear Gets Rid of All Particles") {
-  const size_t kNumHistogramBins = 8;
   Simulation simulation = Simulation(kNumHistogramBins);
 
   for(size_t index = 0; index < 3; index++) {
@@ -113,8 +111,7 @@ TEST_CASE("Clear Gets Rid of All Particles") {
   REQUIRE(simulation.GetParticles().empty());
 }
 
-TEST_CASE("Manage Particles Updates Positions and Velocities") {
-  const size_t kNumHistogramBins = 8;
+TEST_CASE("Update Particles Updates Positions and Velocities") {
   Simulation simulation = Simulation(kNumHistogramBins);
 
   for(size_t index = 1; index < 6; index++) {
@@ -157,4 +154,46 @@ TEST_CASE("Manage Particles Updates Positions and Velocities") {
   REQUIRE(particles[5] == Particle(glm::vec2(1.81818175f, 2.909091f),
                                    glm::vec2(4.81818199f, 16.9090919f),
                                    ParticleType::kBlue));
+}
+
+TEST_CASE("Update Speed Histograms Calculates Correct Values") {
+  Simulation simulation = Simulation(kNumHistogramBins);
+
+  for(size_t index = 1; index < 6; index++) {
+    glm::vec2 velocity(index * 3, index * 5);
+    glm::vec2 position(index * 1, index * 4);
+
+    ParticleType particle_type = ParticleType::kRed;
+    if(index % 2 == 0) {
+      particle_type = ParticleType::kBlue;
+    } else if(index % 3 == 0) {
+      particle_type = ParticleType::kGreen;
+    }
+
+    Particle particle = Particle(velocity, position, particle_type);
+    simulation.AddParticle(particle);
+  }
+
+  simulation.UpdateSpeedHistograms();
+
+  const speed_histograms_t& histograms = simulation.GetSpeedHistograms();
+
+  std::vector<size_t> red_histogram_bins;
+  std::vector<size_t> blue_histogram_bins;
+  std::vector<size_t> green_histogram_bins;
+  for(size_t index = 0; index < kNumHistogramBins; index++) {
+    red_histogram_bins.push_back(0);
+    blue_histogram_bins.push_back(0);
+    green_histogram_bins.push_back(0);
+  }
+
+  red_histogram_bins[1] = 1;
+  REQUIRE(red_histogram_bins == histograms.at(ParticleType::kRed));
+
+  blue_histogram_bins[3] = 1;
+  blue_histogram_bins[7] = 1;
+  REQUIRE(blue_histogram_bins == histograms.at(ParticleType::kBlue));
+
+  green_histogram_bins[5] = 1;
+  REQUIRE(green_histogram_bins == histograms.at(ParticleType::kGreen));
 }
