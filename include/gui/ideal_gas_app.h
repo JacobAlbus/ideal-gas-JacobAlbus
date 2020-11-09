@@ -49,7 +49,6 @@ class IdealGasApp : public ci::app::App {
   const float kGasWindowHeight = 300;
   const float kHistogramWindowSize = 75;
   const double kMargin = 20;
-  const size_t kNumHistogramBins = 8;
 
  private:
   /**
@@ -62,7 +61,6 @@ class IdealGasApp : public ci::app::App {
   std::string particle_count_message_;
   std::string particle_type_message_;
   SimulationUI simulation_ui_;
-  Simulation simulation_;
 };
 
 }  // namespace visualizer

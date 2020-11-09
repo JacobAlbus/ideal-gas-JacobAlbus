@@ -8,7 +8,9 @@ namespace visualizer {
 using glm::vec2;
 
 //TODO fix magic
-SimulationUI::SimulationUI() : kRedHistogramWindow(kWindowSize / 1.38f,
+//TODO why can't I instantiate with kNumHistBins
+SimulationUI::SimulationUI() : kNumHistogramBins(8), simulation_(8),
+                               kRedHistogramWindow(kWindowSize / 1.38f,
                                                    kWindowSize / 3.97f,
                                                    kWindowSize / 1.38f,
                                                    kWindowSize / 3.97f),
@@ -21,8 +23,14 @@ SimulationUI::SimulationUI() : kRedHistogramWindow(kWindowSize / 1.38f,
                                                      kWindowSize / 1.38f,
                                                      kWindowSize / 1.13f){}
 
-void SimulationUI::Draw(const Simulation& simulation) const {
-  const std::vector<Particle>& particles = simulation.GetParticles();
+void SimulationUI::UpdateSimulation(const ci::Rectf& gas_window) {
+  simulation_.UpdateParticles(gas_window);
+  simulation_.UpdateSpeedHistograms();
+}
+
+//TODO is render a good name
+void SimulationUI::RenderDynamicObjects() const {
+  const std::vector<Particle>& particles = simulation_.GetParticles();
 
   for(const Particle& particle : particles) {
     ci::gl::color(particle.GetColor());
@@ -30,7 +38,7 @@ void SimulationUI::Draw(const Simulation& simulation) const {
     ci::gl::drawSolidCircle(particle.GetPosition(), kRadius);
   }
 
-  const speed_histograms_t& speed_histograms = simulation.GetSpeedHistograms();
+  const speed_histograms_t& speed_histograms = simulation_.GetSpeedHistograms();
 
   ci::gl::color(1, 0, 0);
   RenderHistograms(kRedHistogramWindow, speed_histograms.at(ParticleType::kRed));
@@ -44,8 +52,7 @@ void SimulationUI::Draw(const Simulation& simulation) const {
 
 void SimulationUI::HandleParticleBrush(const vec2& brush_screen_coords,
                                        const ci::Rectf& gas_window,
-                                       ParticleType particle_type,
-                                       Simulation& simulation) {
+                                       ParticleType particle_type) {
   float x_coord = brush_screen_coords.x;
   float y_coord = brush_screen_coords.y;
 
@@ -57,7 +64,7 @@ void SimulationUI::HandleParticleBrush(const vec2& brush_screen_coords,
     glm::vec2 velocity(x_velocity, y_velocity);
 
     Particle new_particle = Particle(velocity, position, particle_type);
-    simulation.AddParticle(new_particle);
+    simulation_.AddParticle(new_particle);
   }
 }
 
@@ -79,6 +86,14 @@ void SimulationUI::RenderHistograms(const ci::Rectf& hist_window,
                                     hist_window.getX2() + 8.0f + static_cast<float>(index * 18),
                                     hist_window.getY2()));
   }
+}
+
+void SimulationUI::ClearSimulation() {
+  simulation_.Clear();
+}
+
+const std::vector<Particle> & SimulationUI::GetSimulationParticles() {
+  return simulation_.GetParticles();
 }
 
 }  // namespace visualizer

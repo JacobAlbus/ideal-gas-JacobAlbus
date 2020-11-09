@@ -11,9 +11,15 @@ class SimulationUI {
   SimulationUI();
 
   /**
+   * Updates Particle Positions and Velocities and Updates Speed Histograms
+   * @param rect object representing the bounds of the particle window/box
+   */
+  void UpdateSimulation(const ci::Rectf& gas_window);
+
+  /**
    * Displays the current state of the sketchpad in the Cinder application.
    */
-  void Draw(const Simulation& simulation) const;
+  void RenderDynamicObjects() const;
 
   /**
    * Creates Particle Objects at passed in window coords
@@ -23,8 +29,14 @@ class SimulationUI {
    */
   void HandleParticleBrush(const glm::vec2& brush_screen_coords,
                            const ci::Rectf& gas_window,
-                           ParticleType particle_type,
-                           Simulation& simulation);
+                           ParticleType particle_type);
+
+  /**
+   * Clears Simulation Object of all particles
+   */
+  void ClearSimulation();
+
+  const std::vector<Particle>& GetSimulationParticles();
 
  private:
   /**
@@ -37,9 +49,18 @@ class SimulationUI {
   bool IsBrushInsideWindow(double x_coord, double y_coord,
                            const ci::Rectf& gas_window) const;
 
+  /**
+   * Renders speed histograms inside of their respective windows
+   * @param hist_window
+   * @param bin_counts
+   */
   void RenderHistograms(const ci::Rectf& hist_window, const std::vector<size_t>& bin_counts) const;
 
+  Simulation simulation_;
+
   const float kWindowSize = 875;
+  const size_t kNumHistogramBins;
+
   const ci::Rectf kRedHistogramWindow;
   const ci::Rectf kBlueHistogramWindow;
   const ci::Rectf kGreenHistogramWindow;

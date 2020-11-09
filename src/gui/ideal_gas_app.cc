@@ -4,8 +4,7 @@ namespace ideal_gas {
 
 namespace visualizer {
 
-IdealGasApp::IdealGasApp() : simulation_(kNumHistogramBins),
-                             simulation_ui_(),
+IdealGasApp::IdealGasApp() : simulation_ui_(),
                              particle_type_(ParticleType::kRed),
                              particle_count_message_("Particle Count: 0"),
                              particle_type_message_("Brush Particle Type: Red"),
@@ -17,15 +16,14 @@ IdealGasApp::IdealGasApp() : simulation_(kNumHistogramBins),
 }
 
 void IdealGasApp::update() {
-  simulation_.UpdateParticles(gas_window_);
-  simulation_.UpdateSpeedHistograms();
+  simulation_ui_.UpdateSimulation(gas_window_);
 }
 
 void IdealGasApp::draw() {
   ci::Color8u background_color(0, 0, 0);
   ci::gl::clear(background_color);
 
-  simulation_ui_.Draw(simulation_);
+  simulation_ui_.RenderDynamicObjects();
 
   ci::gl::drawStringCentered(
       particle_count_message_,
@@ -58,11 +56,12 @@ void IdealGasApp::draw() {
 }
 
 void IdealGasApp::mouseDown(ci::app::MouseEvent event) {
-  size_t particle_count = simulation_.GetParticles().size();
+  size_t particle_count = simulation_ui_.GetSimulationParticles().size();
   particle_count_message_ = "Particle Count: " + std::to_string(particle_count);
 
-  simulation_ui_.HandleParticleBrush(event.getPos(), gas_window_,
-                                     particle_type_, simulation_);
+  simulation_ui_.HandleParticleBrush(event.getPos(),
+                                     gas_window_,
+                                     particle_type_);
 }
 
 void IdealGasApp::mouseDrag(ci::app::MouseEvent event) {
@@ -72,7 +71,7 @@ void IdealGasApp::mouseDrag(ci::app::MouseEvent event) {
 void IdealGasApp::keyDown(ci::app::KeyEvent event) {
   switch (event.getCode()) {
     case ci::app::KeyEvent::KEY_DELETE: {
-      simulation_.Clear();
+      simulation_ui_.ClearSimulation();
       particle_count_message_ = "Particle Count: 0";
       break;
     }
