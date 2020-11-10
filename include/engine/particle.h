@@ -79,7 +79,7 @@ class Particle {
    * Calculates updated velocity for particle
    * @return updated particle velocity
    */
-  glm::vec2 CalculateUpdatedVelocity(const Particle& particle_in_contact);
+  glm::vec2 CalculateUpdatedVelocity(const Particle& particle_in_contact) const;
 
   glm::vec2 velocity_;
   glm::vec2 position_;

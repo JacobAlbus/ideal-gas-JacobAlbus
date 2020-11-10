@@ -81,7 +81,7 @@ bool Particle::operator==(const Particle &other_particle) const {
 }
 
 glm::vec2 Particle::CalculateUpdatedVelocity(
-    const Particle& particle_in_contact) {
+    const Particle& particle_in_contact) const {
 
   float mass_coefficient =
       2.0f * (particle_in_contact.mass_ / (particle_in_contact.mass_ + mass_));
