@@ -39,7 +39,7 @@ class SimulationUI {
    */
   void ClearSimulation();
 
-  const std::vector<Particle>& GetSimulationParticles();
+  const std::vector<Particle>& GetSimulationParticles() const;
 
  private:
   /**
