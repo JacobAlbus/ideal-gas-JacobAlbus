@@ -102,7 +102,7 @@ TEST_CASE("Update Velocity Properly Updates Velocity") {
     REQUIRE(particle2.GetVelocity()[1] == Approx(-1.95455));
   }
 
-  SECTION(" Is Particles In Contact Stops Allows Velocities to be updated") {
+  SECTION("Two Particles In Contact Have Velocities Updated") {
     glm::vec2 position1(5.0, 6.0);
     glm::vec2 velocity1(0.5, -1.0);
     Particle particle1 = Particle(velocity1, position1, ParticleType::kGreen);
@@ -112,11 +112,11 @@ TEST_CASE("Update Velocity Properly Updates Velocity") {
     Particle particle2 = Particle(velocity2, position2, ParticleType::kGreen);
 
     particle1.UpdateVelocity(particle2);
-    //TODO you said that I need to check values, but I already made sure calculations are correct
-    REQUIRE_FALSE(particle1.GetVelocity() == velocity1);
+    REQUIRE_FALSE(particle1.GetVelocity().x == 0);
+    REQUIRE_FALSE(particle1.GetVelocity().y == 0);
   }
 
-  SECTION("Is Particles In Contact Stops Velocities From Being Updated") {
+  SECTION("Two Particles Not In Contact Don't Have Velocities Updated") {
     glm::vec2 position1(511.0, 6.0);
     glm::vec2 velocity1(0.5, -1.0);
     Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
@@ -129,7 +129,7 @@ TEST_CASE("Update Velocity Properly Updates Velocity") {
     REQUIRE(particle1.GetVelocity() == velocity1);
   }
 
-  SECTION("IsParticlesMovingCloser Allows Velocities To Be Updated") {
+  SECTION("Two Particles Moving Towards Each Other Have Velocities Updated") {
     glm::vec2 position1(5.0, 6.0);
     glm::vec2 velocity1(0.5, -1.0);
     Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
@@ -139,10 +139,11 @@ TEST_CASE("Update Velocity Properly Updates Velocity") {
     Particle particle2 = Particle(velocity2, position2, ParticleType::kRed);
 
     particle1.UpdateVelocity(particle2);
-    REQUIRE_FALSE(particle1.GetVelocity() == velocity1);
+    REQUIRE_FALSE(particle1.GetVelocity().x == 0);
+    REQUIRE_FALSE(particle1.GetVelocity().y == 0);
   }
 
-  SECTION("IsParticlesMovingCloser Stops Velocities From Being Updated") {
+  SECTION("Two Particles Moving Away From Each Other Don't Have Velocities Updated") {
     glm::vec2 position1(5.0, 6.0);
     glm::vec2 velocity1(-0.5, -1.0);
     Particle particle1 = Particle(velocity1, position1, ParticleType::kRed);
@@ -220,13 +221,4 @@ TEST_CASE("Update Position Works Correctly") {
     REQUIRE(particle.GetPosition()[0] == Approx(100.5));
     REQUIRE(particle.GetPosition()[1] == Approx(299.0));
   }
-}
-
-//TODO how should I make it not implementation level specific?
-TEST_CASE("IsParticlesInContact Works Correctly") {
-
-}
-
-TEST_CASE("IsParticlesMovingCloser Will Allow Velocities To Be Updated") {
-
 }

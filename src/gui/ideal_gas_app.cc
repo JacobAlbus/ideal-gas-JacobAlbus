@@ -36,22 +36,23 @@ void IdealGasApp::draw() {
   ci::gl::drawStrokedRect(gas_window_);
 
   ci::gl::color(1, 0, 0);
-  //TODO magic numbers
-  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / 1.25f - kHistogramWindowSize,
+  const float kHorizontalWindowRatio = 1.25f;
+
+  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / kHorizontalWindowRatio - kHistogramWindowSize,
                                     kWindowSize / 6.0f - kHistogramWindowSize,
-                                    kWindowSize / 1.25f + kHistogramWindowSize,
+                                    kWindowSize / kHorizontalWindowRatio + kHistogramWindowSize,
                                     kWindowSize / 6.0f + kHistogramWindowSize));
 
   ci::gl::color(0, 0, 1);
-  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / 1.25f - kHistogramWindowSize,
+  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / kHorizontalWindowRatio - kHistogramWindowSize,
                                     kWindowSize / 2.1f - kHistogramWindowSize,
-                                    kWindowSize / 1.25f + kHistogramWindowSize,
+                                    kWindowSize / kHorizontalWindowRatio + kHistogramWindowSize,
                                     kWindowSize / 2.1f + kHistogramWindowSize));
 
   ci::gl::color(0, 1, 0);
-  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / 1.25f - kHistogramWindowSize,
+  ci::gl::drawStrokedRect(ci::Rectf(kWindowSize / kHorizontalWindowRatio - kHistogramWindowSize,
                                     kWindowSize / 1.25f - kHistogramWindowSize,
-                                    kWindowSize / 1.25f + kHistogramWindowSize,
+                                    kWindowSize / kHorizontalWindowRatio + kHistogramWindowSize,
                                     kWindowSize / 1.25f + kHistogramWindowSize));
 }
 
@@ -86,7 +87,6 @@ void IdealGasApp::keyDown(ci::app::KeyEvent event) {
 }
 
 void IdealGasApp::SwitchParticleType() {
-  //TODO make it not so "hard-coded"
   switch(particle_type_) {
     case ParticleType::kRed:
       particle_type_ = ParticleType::kBlue;

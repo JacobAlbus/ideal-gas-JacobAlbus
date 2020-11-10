@@ -5,20 +5,22 @@ namespace ideal_gas {
 
 namespace visualizer {
 
-//TODO fix magic
-//TODO why can't I instantiate with kNumHistBins
-SimulationUI::SimulationUI() : kNumHistogramBins(8), simulation_(8),
-                               kRedHistogramWindow(kWindowSize / 1.38f,
+const size_t SimulationUI::kNumHistogramBins = 8;
+const float SimulationUI::kWindowSize = 875.0f;
+const float SimulationUI::kHorizontalWindowRatio = 1.38f;
+
+SimulationUI::SimulationUI() : simulation_(Simulation(kNumHistogramBins)),
+                               kRedHistogramWindow(kWindowSize / kHorizontalWindowRatio,
                                                    kWindowSize / 3.97f,
-                                                   kWindowSize / 1.38f,
+                                                   kWindowSize / kHorizontalWindowRatio,
                                                    kWindowSize / 3.97f),
-                               kBlueHistogramWindow(kWindowSize / 1.38f,
+                               kBlueHistogramWindow(kWindowSize / kHorizontalWindowRatio,
                                                     kWindowSize / 1.78f,
-                                                    kWindowSize / 1.38f,
+                                                    kWindowSize / kHorizontalWindowRatio,
                                                     kWindowSize / 1.78f),
-                               kGreenHistogramWindow(kWindowSize / 1.38f,
+                               kGreenHistogramWindow(kWindowSize / kHorizontalWindowRatio,
                                                      kWindowSize / 1.13f,
-                                                     kWindowSize / 1.38f,
+                                                     kWindowSize / kHorizontalWindowRatio,
                                                      kWindowSize / 1.13f) {}
 
 void SimulationUI::UpdateSimulation(const ci::Rectf& gas_window) {

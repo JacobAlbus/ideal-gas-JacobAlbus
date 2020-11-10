@@ -61,8 +61,9 @@ class SimulationUI {
 
   Simulation simulation_;
 
-  const float kWindowSize = 875;
-  const size_t kNumHistogramBins;
+  static const float kWindowSize;
+  static const float kHorizontalWindowRatio;
+  static const size_t kNumHistogramBins;
 
   const ci::Rectf kRedHistogramWindow;
   const ci::Rectf kBlueHistogramWindow;

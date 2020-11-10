@@ -6,7 +6,6 @@
 using namespace ideal_gas;
 using namespace visualizer;
 
-//TODO refactor simulation_ui tests to explicitly test simulation
 TEST_CASE("HandleParticleBrush Works Correctly") {
   SECTION("HandleParticleBrush does not draw particles "
           "if brush is outside of window") {
@@ -36,5 +35,5 @@ TEST_CASE("HandleParticleBrush Works Correctly") {
     REQUIRE(particles[0].GetMass() == Approx(1.0f));
     REQUIRE(particles[0].GetRadius() == Approx(2.0f));
     REQUIRE(particles[0].GetColor() == ci::Color(1, 0, 0));
-  }f
+  }
 }
